@@ -3,9 +3,9 @@
 //Db connection
 function pdo_connect_mysql() {
     $DATABASE_HOST = 'localhost';
-    $DATABASE_USER = '';
-    $DATABASE_PASS = '';
-    $DATABASE_NAME = '';
+    $DATABASE_USER = 'W01210609';
+    $DATABASE_PASS = 'Matthewcs!';
+    $DATABASE_NAME = 'W01210609';
 
     try {
         return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' .
