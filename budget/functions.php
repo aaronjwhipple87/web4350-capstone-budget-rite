@@ -3,9 +3,9 @@
 //Db connection
 function pdo_connect_mysql() {
     $DATABASE_HOST = 'localhost';
-    $DATABASE_USER = '';
-    $DATABASE_PASS = '';
-    $DATABASE_NAME = '';
+    $DATABASE_USER = 'W01210609';
+    $DATABASE_PASS = 'Matthewcs!';
+    $DATABASE_NAME = 'W01210609';
 
     try {
         return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' .
@@ -47,7 +47,7 @@ function template_nav() {
 <nav class="navbar is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="index.php">
-      <img src="images/BR-icon.png" alt="">
+      <img src="img/BR-icon.png" alt="">
     </a>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -63,8 +63,8 @@ function template_nav() {
      <a class="navbar-item" href="index.php">
         Home
       </a>
-      <a class="navbar-item" href="login.php">
-        Login
+      <a class="navbar-item" href="about.php">
+        About us
       </a>
     </div>
     
@@ -93,13 +93,18 @@ function template_footer() {
 <footer class="footer">
   <div class="columns">
     <div class="column">
-        <img src="images/BR_small-icon.png" alt="">
+        <img src="img/BR_small-icon.png" alt="">
     </div>
     <div class="column">
-        <a href="index.php">Home</a>
-        <a href="about.php">About Us</a>
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li>|</li>
+            <li><a href="about.php">About Us</a> </li>
+             <li>|</li>
+            <li><a href="login.php">Login</a> </li>
+             <li>|</li>
+            <li><a href="register.php">Register</a></li>
+        </ul>
         <div class="columns is-mobile">
             <div class="column">
                 <p>&#169;&nbsp;2020 BudgetRite</p>
@@ -110,13 +115,13 @@ function template_footer() {
         </div>
     </div>
     <div class="column social-media">
-        <a href="#" class="button">
+        <a href="#">
             <i class="fab fa-facebook fa-3x"></i>
         </a>
-        <a href="#" class="button">
+        <a href="#">
             <i class="fab fa-twitter fa-3x"></i>
         </a>
-        <a href="#" class="button">
+        <a href="#">
             <i class="fab fa-linkedin fa-3x"></i>
         </a>
     </div>

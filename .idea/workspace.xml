@@ -3,6 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="a3e2b581-2917-4420-a57a-f8b987db6ccb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR-icon.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon-01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/chart-line-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/cog-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/copyright-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/exchange-alt-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/facebook-brands.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/file-invoice-dollar-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/hand-holding-usd-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/instagram-brands.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/money-bill-alt-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/piggy-bank-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/twitter-brands.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/user-solid.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +51,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/budget/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -63,7 +82,8 @@
       <updated>1602615073527</updated>
       <workItem from="1602615074723" duration="865000" />
       <workItem from="1603206332401" duration="81000" />
-      <workItem from="1603206523838" duration="5675000" />
+      <workItem from="1603206523838" duration="13237000" />
+      <workItem from="1603233258847" duration="981000" />
     </task>
     <servers />
   </component>
@@ -71,6 +91,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="402" y="144" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603216170362">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="402" y="144" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603216170362" />
     <state x="-1184" y="288" key="FileChooserDialogImpl" timestamp="1603206544951">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>

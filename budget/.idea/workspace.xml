@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e3f6866-de1f-4d18-a84e-edc2a0b70041" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BR-icon.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BR-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BR_small-icon-01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BR_small-icon.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BR_small-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/chart-line-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cog-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/copyright-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/exchange-alt-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/facebook-brands.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/file-invoice-dollar-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/hand-holding-usd-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram-brands.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/money-bill-alt-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/piggy-bank-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/twitter-brands.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/user-solid.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jA3mUyO74KeS9bzORhHO8omags" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e3f6866-de1f-4d18-a84e-edc2a0b70041" name="Default Changelist" comment="" />
+      <created>1603233227579</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603233227579</updated>
+      <workItem from="1603233228718" duration="29000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1424" y="364" key="FileChooserDialogImpl" timestamp="1603233255945">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1424" y="364" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603233255945" />
+  </component>
+</project>
