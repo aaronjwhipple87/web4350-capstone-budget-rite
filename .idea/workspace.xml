@@ -2,26 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3e2b581-2917-4420-a57a-f8b987db6ccb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/budget/.idea/budget.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/budget/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/budget/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/budget/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/budget/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/budget/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/BR-icon.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/BR-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/chart-line-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/cog-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/copyright-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/exchange-alt-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/facebook-brands.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/file-invoice-dollar-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/hand-holding-usd-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/instagram-brands.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/money-bill-alt-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/piggy-bank-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/twitter-brands.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/images/user-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR-icon.ai" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/BR-icon.ai" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/BR-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon-01.png" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/BR_small-icon-01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon.ai" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/BR_small-icon.ai" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/BR_small-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/BR_small-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/chart-line-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/chart-line-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/cog-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/cog-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/copyright-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/copyright-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/exchange-alt-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/exchange-alt-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/facebook-brands.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/facebook-brands.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/file-invoice-dollar-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/file-invoice-dollar-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/hand-holding-usd-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/hand-holding-usd-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/instagram-brands.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/instagram-brands.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/money-bill-alt-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/money-bill-alt-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/piggy-bank-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/piggy-bank-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/twitter-brands.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/twitter-brands.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/images/user-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/budget/img/user-solid.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +89,7 @@
       <workItem from="1602615074723" duration="865000" />
       <workItem from="1603206332401" duration="81000" />
       <workItem from="1603206523838" duration="13237000" />
-      <workItem from="1603233258847" duration="981000" />
+      <workItem from="1603233258847" duration="1307000" />
     </task>
     <servers />
   </component>
