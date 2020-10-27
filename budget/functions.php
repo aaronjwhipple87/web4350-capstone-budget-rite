@@ -1,22 +1,20 @@
 <?php
 
-//Db connection
-function pdo_connect_mysql() {
-    $DATABASE_HOST = 'localhost';
-    $DATABASE_USER = 'W01210609';
-    $DATABASE_PASS = 'Matthewcs!';
-    $DATABASE_NAME = 'W01210609';
+//db connection
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'W01210609';
+$DATABASE_PASS = 'Matthewcs!';
+$DATABASE_NAME = 'W01210609';
 
-    try {
-        return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' .
-            $DATABASE_NAME . ';charset=utf8',
-            $DATABASE_USER,
-            $DATABASE_PASS);
-    } catch (PDOException $exception) {
-        die ('Failed to connect to database!');
-    }
+// Try and connect using the info above.
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 
+if (mysqli_connect_errno() ) {
+
+// If there is an error with the connection, stop the script and display the error.
+    die ('Failed to connect to database!');
 }
+
 
 
 // Template header
@@ -73,7 +71,7 @@ function template_nav() {
           <a href="register.php"class="button is-primary">
             Register
           </a>
-          <a href="login.php" class="button is-light">
+          <a href="login.php" class="button is-success">
             Login
           </a>
         </div>
