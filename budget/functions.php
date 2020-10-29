@@ -18,7 +18,6 @@ function pdo_connect_mysql() {
 
 }
 
-
 // Template header
 function template_header($title) {
     echo <<<EOT
