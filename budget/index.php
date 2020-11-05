@@ -1,10 +1,6 @@
 <?php
 include 'functions.php';
 
-// Connect to MySQL
-$pdo = pdo_connect_mysql();
-
-
 ?>
 
 <?=template_header('Budget Rite');?>
