@@ -28,6 +28,7 @@ function template_header($title) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>$title</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/graph.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="js/main.js"></script>
 </head>
