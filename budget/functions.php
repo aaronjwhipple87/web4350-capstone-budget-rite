@@ -15,8 +15,6 @@ if (mysqli_connect_errno() ) {
     die ('Failed to connect to database!');
 }
 
-
-
 // Template header
 function template_header($title) {
     echo <<<EOT
@@ -89,41 +87,37 @@ EOT;
 function template_footer() {
     echo <<<EOT
 <footer class="footer">
-  <div class="columns">
-    <div class="column">
+  <div class="columns is-centered is-vcentered">
+    <div class="column is-one-third has-text-centered">
         <img src="img/BR_small-icon.png" alt="">
     </div>
-    <div class="column">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li>|</li>
-            <li><a href="about.php">About Us</a> </li>
-             <li>|</li>
-            <li><a href="login.php">Login</a> </li>
-             <li>|</li>
-            <li><a href="register.php">Register</a></li>
-        </ul>
-        <div class="columns is-mobile">
-            <div class="column">
-                <p>&#169;&nbsp;2020 BudgetRite</p>
-            </div>
-            <div class="column">
-                <p><a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a></p>
-            </div>
+    <div class="column is-one-third has-text-centered">
+      <a href="index.php">Home</a> |
+      <a href="about.php">About Us</a> |
+      <a href="login.php">Login</a> |
+      <a href="register.php">Register</a>
+      <br><p>&#169;&nbsp;2020 BudgetRite</p>
+      <p><a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a></p>
+    </div>
+    <div class="column social-media is-one-third has-text-centered">
+      <div class="columns is-vcentered is-centered is-mobile">
+        <div class="column is-narrow has-text-centered">
+          <a href="#">
+              <i class="fab fa-facebook fa-3x socialIcons"></i>
+          </a>
         </div>
+        <div class="column is-narrow has-text-centered">
+          <a href="#">
+              <i class="fab fa-twitter fa-3x socialIcons"></i>
+          </a>
+        </div>
+        <div class="column is-narrow has-text-centered">
+        <a href="#">
+        <i class="fab fa-linkedin fa-3x socialIcons"></i>
+        </a>
+        </div>
+      </div>
     </div>
-    <div class="column social-media">
-        <a href="#">
-            <i class="fab fa-facebook fa-3x"></i>
-        </a>
-        <a href="#">
-            <i class="fab fa-twitter fa-3x"></i>
-        </a>
-        <a href="#">
-            <i class="fab fa-linkedin fa-3x"></i>
-        </a>
-    </div>
-    
   </div>
 </footer>
     </body>
