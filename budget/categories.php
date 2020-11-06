@@ -45,7 +45,7 @@ include 'functions.php';
             </div>
             <div class="column">
                 Settings
-                <a href="#"><img src="img/cog-solid.svg" alt="Cog"></a>
+                <a href="settings.php"><img src="img/cog-solid.svg" alt="Cog"></a>
             </div>
             <div class="column">
                 Account
