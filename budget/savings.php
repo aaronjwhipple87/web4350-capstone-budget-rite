@@ -3,7 +3,15 @@ require 'functions.php';
 require 'session.php';
 $msg = "";
 
+// get info from db
+$sql = $con->prepare('SELECT savingsType, savingsName, savingsAmount FROM users WHERE userId = ?');
 
+// In this case we can use the account ID to get the account info.
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$sql->bind_result($userPassword, $email, $firstName, $lastName);
+$sql->fetch();
+$sql->close();
 
 
 
