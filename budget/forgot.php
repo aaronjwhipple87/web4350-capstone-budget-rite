@@ -47,7 +47,7 @@ if(isset($_POST["submit"])){
     <section class="section">
         <div class="container">
             <h1 class="title">
-                Forgot Password?
+                Forgot/ Reset Password?
             </h1>
             <form action="forgot.php" method="post">
                 <div class="field">

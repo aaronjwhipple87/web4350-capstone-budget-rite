@@ -1,5 +1,11 @@
 <?php
-include 'functions.php';
+require 'functions.php';
+require 'session.php';
+$msg = "";
+
+
+
+
 
 ?>
 

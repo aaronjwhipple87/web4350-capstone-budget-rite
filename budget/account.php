@@ -1,5 +1,11 @@
 <?php
-include 'functions.php';
+require 'functions.php';
+require 'session.php';
+$msg = "";
+
+
+
+
 
 ?>
 
@@ -11,7 +17,7 @@ include 'functions.php';
 <section class="section">
     <div class="container">
         <h1 class="title">My Account</h1>
-        <h2>Username</h2>
+        <h2>Username: <?=$_SESSION['email']?></h2>
         <div class="columns">
             <div class="column">
                 <div>

@@ -1,5 +1,9 @@
 <?php
-include 'functions.php';
+require 'functions.php';
+require 'session.php';
+$msg = "";
+
+
 
 ?>
 
@@ -38,7 +42,7 @@ include 'functions.php';
             </div>
             <div class="column">
                 <h2>Enter New Income</h2>
-                <form action="">
+                <form action="income.php">
                     <div class="field">
                         <div class="control">
                             <label for="incomeType" class="label">Income Type</label>
