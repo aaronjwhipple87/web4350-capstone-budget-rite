@@ -13,6 +13,16 @@ CREATE TABLE IF NOT EXISTS users (
     bankId INT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS bills (
+    billID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    billType VARCHAR(75) NOT NULL,
+    billName VARCHAR(75) NOT NULL,
+    billAmount INT NOT NULL,
+    billdueDate DATE,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    userId INT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS banks (
     bankID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     bankName VARCHAR(100) NOT NULL,
@@ -49,6 +59,9 @@ CREATE TABLE IF NOT EXISTS categories (
 -- ADD FK CONSTRAINTS
 ALTER TABLE users
 ADD FOREIGN KEY (bankID) REFERENCES banks(bankID);
+
+ALTER TABLE bills
+ADD FOREIGN KEY (userID) REFERENCES users(userID);
 
 ALTER TABLE usersTransactions
 ADD FOREIGN KEY (transactionID) REFERENCES transactions(transactionID);

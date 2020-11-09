@@ -26,8 +26,7 @@ $msg = "";
                 <span>Create Transaction</span>
             </a>
         </div>
-        <p>&nbsp;</p>
-        <div class="container">
+        <div class="container pt-3">
             <table class="table is-bordered">
                 <thead>
                     <tr>
