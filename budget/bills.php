@@ -4,6 +4,13 @@ require 'session.php';
 $msg = "";
 
 
+ //query that selects all the bills for user
+$sql = $con->prepare('SELECT * FROM bills WHERE userId = ?');
+$sql->bind_param("i", $_SESSION['id']);
+$sql->execute();
+$result = $sql->get_result();
+$bills = $result->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <?=template_header('Bills');?>
@@ -41,6 +48,7 @@ $msg = "";
             <table class="table is-bordered">
                 <thead>
                 <tr>
+                    <td>#</td>
                     <td>Bill Type</td>
                     <td>Bill Name</td>
                     <td>Amount</td>
@@ -49,35 +57,38 @@ $msg = "";
                     <td>Action</td>
                 </tr>
                 </thead>
-<!--                    <tbody>-->
-<!--                    --><?php //foreach ($posts as $post): ?>
-<!--                        <tr>-->
-<!--                            <td>-->
-<!--                                --><?//=$post['billType']?>
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                --><?//=$post['billName']?>
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                --><?//=$post['billAmount']?>
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                --><?//=$post['billdueDate']?>
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                --><?//=$post['created']?>
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <a href="update.php?id=--><?//=$post['billID']?><!--" class="button is-link is-small" title="Edit Bill">-->
-<!--                                    <span class="icon"><i class="fas fa-edit"></i></span>-->
-<!--                                </a>-->
-<!--                                <a href="delete.php?id=--><?//=$post['billID']?><!--" class="button is-danger is-small" title="Delete Bill">-->
-<!--                                    <span class="icon"><i class="fas fa-trash"></i></span>-->
-<!--                                </a>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                    --><?php //endforeach;?>
-<!--                    </tbody>-->
+                    <tbody>
+                    <?php foreach ($bills as $row): ?>
+                        <tr>
+                            <td>
+                                <?=$row['billID']?>
+                            </td>
+                            <td>
+                                <?=$row['billType']?>
+                            </td>
+                            <td>
+                                <?=$row['billName']?>
+                            </td>
+                            <td>
+                                <?=$row['billAmount']?>
+                            </td>
+                            <td>
+                                <?=$row['billdueDate']?>
+                            </td>
+                            <td>
+                                <?=$row['created_at']?>
+                            </td>
+                            <td>
+                                <a href="updateBill.php?id=<?=$row['billID']?>" class="button is-link is-small" title="Edit Bill">
+                                    <span class="icon"><i class="fas fa-edit"></i></span>
+                                </a>
+                                <a href="deleteBill.php?id=<?=$row['billID']?>" class="button is-danger is-small" title="Delete Bill">
+                                    <span class="icon"><i class="fas fa-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach;?>
+                    </tbody>
             </table>
         </div>
 </section>
