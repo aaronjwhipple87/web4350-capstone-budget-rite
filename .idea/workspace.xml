@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3e2b581-2917-4420-a57a-f8b987db6ccb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/budget/deleteBill.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/bills.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/bills.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/createBill.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/createBill.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,7 @@
       <workItem from="1604433271944" duration="8604000" />
       <workItem from="1604534325592" duration="6478000" />
       <workItem from="1604704786617" duration="2302000" />
-      <workItem from="1604851998284" duration="28968000" />
+      <workItem from="1604851998284" duration="33792000" />
     </task>
     <servers />
   </component>
@@ -106,10 +107,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1480" y="230" key="MergeDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603722220616" />
-    <state x="-1130" y="456" key="NewPhpFileDialog" timestamp="1604931010075">
+    <state x="-1130" y="456" key="NewPhpFileDialog" timestamp="1604943834491">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1130" y="456" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1604931010075" />
+    <state x="-1130" y="456" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1604943834491" />
     <state x="151" y="0" width="996" height="680" key="SettingsEditor" timestamp="1603737644564">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

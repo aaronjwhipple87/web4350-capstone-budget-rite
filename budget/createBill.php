@@ -10,6 +10,7 @@ if(isset($_POST["submit"])){
             $sql->execute();
             $msg = 'Bill created successfully!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
+            header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/bills.php");
 
         } else {
             $msg = "Could not prepare statement";
