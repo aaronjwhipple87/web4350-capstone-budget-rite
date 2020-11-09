@@ -79,7 +79,7 @@ $bills = $result->fetch_all(MYSQLI_ASSOC);
                                 <?=$row['created_at']?>
                             </td>
                             <td>
-                                <a href="updateBill.php?id=<?=$row['billID']?>" class="button is-link is-small" title="Edit Bill">
+                                <a href="editBill.php?id=<?=$row['billID']?>" class="button is-link is-small" title="Edit Bill">
                                     <span class="icon"><i class="fas fa-edit"></i></span>
                                 </a>
                                 <a href="deleteBill.php?id=<?=$row['billID']?>" class="button is-danger is-small" title="Delete Bill">
