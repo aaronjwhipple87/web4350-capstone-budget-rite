@@ -3,13 +3,13 @@ require 'functions.php';
 require 'session.php';
 $msg = "";
 
-
- //query that selects all the bills for user
-$sql = $con->prepare('SELECT * FROM bills WHERE userId = ?');
-$sql->bind_param("i", $_SESSION['id']);
-$sql->execute();
-$result = $sql->get_result();
-$bills = $result->fetch_all(MYSQLI_ASSOC);
+//
+// //query that selects all the bills for user
+//$sql = $con->prepare('SELECT * FROM bills WHERE userId = ?');
+//$sql->bind_param("i", $_SESSION['id']);
+//$sql->execute();
+//$result = $sql->get_result();
+//$bills = $result->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
@@ -57,38 +57,38 @@ $bills = $result->fetch_all(MYSQLI_ASSOC);
                     <td>Action</td>
                 </tr>
                 </thead>
-                    <tbody>
-                    <?php foreach ($bills as $row): ?>
-                        <tr>
-                            <td>
-                                <?=$row['billID']?>
-                            </td>
-                            <td>
-                                <?=$row['billType']?>
-                            </td>
-                            <td>
-                                <?=$row['billName']?>
-                            </td>
-                            <td>
-                                <?=$row['billAmount']?>
-                            </td>
-                            <td>
-                                <?=$row['billdueDate']?>
-                            </td>
-                            <td>
-                                <?=$row['created_at']?>
-                            </td>
-                            <td>
-                                <a href="editBill.php?id=<?=$row['billID']?>" class="button is-link is-small" title="Edit Bill">
-                                    <span class="icon"><i class="fas fa-edit"></i></span>
-                                </a>
-                                <a href="deleteBill.php?id=<?=$row['billID']?>" class="button is-danger is-small" title="Delete Bill">
-                                    <span class="icon"><i class="fas fa-trash"></i></span>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach;?>
-                    </tbody>
+<!--                    <tbody>-->
+<!--                    --><?php //foreach ($bills as $row): ?>
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                --><?//=$row['billID']?>
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                --><?//=$row['billType']?>
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                --><?//=$row['billName']?>
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                --><?//=$row['billAmount']?>
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                --><?//=$row['billdueDate']?>
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                --><?//=$row['created_at']?>
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <a href="editBill.php?id=--><?//=$row['billID']?><!--" class="button is-link is-small" title="Edit Bill">-->
+<!--                                    <span class="icon"><i class="fas fa-edit"></i></span>-->
+<!--                                </a>-->
+<!--                                <a href="deleteBill.php?id=--><?//=$row['billID']?><!--" class="button is-danger is-small" title="Delete Bill">-->
+<!--                                    <span class="icon"><i class="fas fa-trash"></i></span>-->
+<!--                                </a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                    --><?php //endforeach;?>
+<!--                    </tbody>-->
             </table>
         </div>
 </section>
