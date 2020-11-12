@@ -1,0 +1,49 @@
+$primary: #298046;
+
+.socialIcons { 
+    color: $primary; 
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#dashboardMoney {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+#dashboardMoney p {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#dashboardMoney progress {
+    width: 90%;
+}
+//mobile
+@media only screen and (max-width: 600px) {
+    #footerImage, .socialIcons, .footer {
+        display: none;
+    }
+
+    #dashboardMoney {
+        width: 90%;
+    }
+
+    #dashboardMoney p {
+        font-size: 1.5rem;
+    }
+}
+
+@import "../bulma/bulma";
