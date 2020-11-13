@@ -21,9 +21,9 @@ $msg = "";
         <div class="container">
             <h1 class="title">Transactions</h1>
             <p class="subtitle">Welcome, you can view, edit or delete transactions below.</p>
-            <a href="createTrans.php" class="button is-success is-small">
+            <a href="addTrans.php" class="button is-success is-small">
                 <span class="icon"><i class="fas fa-plus"></i></span>
-                <span>Create Transaction</span>
+                <span>Add Transaction</span>
             </a>
         </div>
         <div class="container pt-3">

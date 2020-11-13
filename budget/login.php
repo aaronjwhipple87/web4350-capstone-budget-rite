@@ -40,7 +40,7 @@ if(isset($_POST["login"])){
                 $_SESSION['id'] = $userID;
 
 
-                header('Location: categories.php');
+                header('Location: dashboard.php');
 
             } else {
 
