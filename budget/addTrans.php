@@ -5,7 +5,7 @@ $msg = "";
 
 if(isset($_POST["submit"])){
         if($sql = $con->prepare('INSERT INTO transactions ( budgetID, transactionName, transactionAmount, transactionDate, userID ) VALUES (?,?,?, NOW(),?)')) {
-            $sql->bind_param('isii', $_POST['transType'],$_POST['transName'], $_POST['transAmount'], $_SESSION['id']);
+            $sql->bind_param('issi', $_POST['transType'],$_POST['transName'], $_POST['transAmount'], $_SESSION['id']);
             $sql->execute();
             $msg = 'Transaction created successfully!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -35,12 +35,12 @@ if(isset($_POST["submit"])){
                 <div class="field">
                     <label class="label">Transaction Type</label>
                     <div class="select" >
-                        <select name="transType">
-                            <option>Select</option>
+                        <select name="transType" required>
                             <div class="select">
+                                <option value="">Select</option>
                                 <option value="1">Bills</option>
-                                <option value="2">Income</option>
-                                <option value="3">Expenses</option>
+                                <option value="3">Income</option>
+                                <option value="2">Expenses</option>
                                 <option value="4">Savings</option>
                             </div>
                         </select>
@@ -55,7 +55,7 @@ if(isset($_POST["submit"])){
                 <div class="field">
                     <label class="label">Amount</label>
                     <div class="control">
-                        <input type="number" class="input" name="transAmount" required>
+                        <input type="number" class="input" step="any" name="transAmount" required>
                     </div>
                 </div>
                 <div class="field">
