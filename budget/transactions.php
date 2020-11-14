@@ -13,7 +13,6 @@ INNER JOIN
 INNER JOIN
     categories c 
     ON b.categoryID = c.categoryID
-
 WHERE t.userId = ?');
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();

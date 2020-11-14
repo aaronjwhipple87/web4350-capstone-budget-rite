@@ -1,11 +1,17 @@
 $primary: #298046;
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
 .socialIcons { 
     color: $primary; 
 }
 
 .footer {
-    position: fixed;
+    margin-top: auto;
     left: 0;
     bottom: 0;
     width: 100%;
