@@ -103,6 +103,9 @@ EOT;
          <a class="navbar-item" href="dashboard.php">
             Home
           </a>
+          <a class="navbar-item" href="categories.php">
+            Categories
+          </a>
         </div>
         
          <div class="navbar-end">
