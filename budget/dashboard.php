@@ -3,7 +3,15 @@ require 'functions.php';
 require 'session.php';
 $msg = "";
 
-//get user info from db
+// get user info from db
+$sql = $con->prepare('SELECT firstName, lastName FROM users WHERE userId = ?');
+
+// In this case we can use the account ID to get the account info.
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$sql->bind_result($firstName, $lastName);
+$sql->fetch();
+$sql->close();
 
 
 // get top 10 transactions from db
@@ -126,7 +134,7 @@ $sql->close();
     <div class="container">
         <div class="columns">
             <div class="column is-three-quarters">
-                <h1 class="title">Welcome, User's Name</h1>
+                <h1 class="title">Welcome, <?=$firstName?> <?=$lastName?>!</h1>
                 <p class="subtitle">Your daily spending cash limit is: <span class="has-text-primary">(cash limit)</span></p>
             </div>
             <div class="column">
