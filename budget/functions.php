@@ -42,45 +42,42 @@ function template_nav() {
   if (!isset($_SESSION['loggedin'])) {
     echo <<<EOT
 
-<nav class="navbar is-light" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="index.php">
-      <img src="img/BR-icon.png" alt="">
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-
-    <div class="navbar-start">
-     <a class="navbar-item" href="index.php">
-        Home
-      </a>
-      <a class="navbar-item" href="about.php">
-        About us
-      </a>
-    </div>
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.php">
+          <img src="img/BR-icon.png" alt="">
+        </a>
     
-     <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a href="register.php"class="button is-primary is-outlined">
-            Register
-          </a>
-          <a href="login.php" class="button is-primary">
-            Login
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+    
+        <div class="navbar-start">
+         <a class="navbar-item" href="dashboard.php">
+            Home
           </a>
         </div>
+        
+         <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a href="register.php"class="button is-primary is-outlined">
+                Register
+              </a>
+              <a href="login.php" class="button is-primary">
+                Login
+              </a>
+            </div>
+          </div>
+        </div>
+        
       </div>
-    </div>
-    
-  </div>
-</nav>
+    </nav>
 
 EOT;
   } else {
@@ -103,11 +100,8 @@ EOT;
       <div id="navbarBasicExample" class="navbar-menu">
     
         <div class="navbar-start">
-         <a class="navbar-item" href="index.php">
+         <a class="navbar-item" href="dashboard.php">
             Home
-          </a>
-          <a class="navbar-item" href="about.php">
-            About us
           </a>
         </div>
         
@@ -137,8 +131,7 @@ function template_footer() {
         <img src="img/BR_small-icon.png" alt="">
     </div>
     <div class="column is-one-third has-text-centered">
-      <a href="index.php" class="has-text-primary">Home</a> |
-      <a href="about.php" class="has-text-primary">About Us</a> |
+      <a href="dashboard.php" class="has-text-primary">Home</a> |
       <a href="login.php" class="has-text-primary">Login</a> |
       <a href="register.php" class="has-text-primary">Register</a>
       <br><p>&#169;&nbsp;2020 BudgetRite</p>

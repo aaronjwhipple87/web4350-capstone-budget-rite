@@ -84,20 +84,16 @@ if(isset($_POST["submit"])){
     <div id="navbarBasicExample" class="navbar-menu">
 
         <div class="navbar-start">
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="dashboard.php">
                 Home
             </a>
-            <a class="navbar-item" href="about.php">
-                About us
-            </a>
+
         </div>
 
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <!--                        <a href="register.php"class="button is-primary">-->
-                    <!--                            Register-->
-                    <!--                        </a>-->
+
                     <a href="login.php" class="button is-success">
                         Login
                     </a>

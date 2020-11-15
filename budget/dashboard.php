@@ -3,6 +3,8 @@ require 'functions.php';
 require 'session.php';
 $msg = "";
 
+//get user info from db
+
 
 // get top 10 transactions from db
 $sql = $con->prepare("
