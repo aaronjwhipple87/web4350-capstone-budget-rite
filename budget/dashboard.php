@@ -16,17 +16,19 @@ $sql->close();
 
 // get top 10 transactions from db
 $sql = $con->prepare("
-SELECT t.transactionName, c.categoryName, b.budgetName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate
+SELECT 
+	t.transactionName, t.transactionType, b.budgetName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate
 FROM
-	transactions as t 
+	budgets as b 
 LEFT JOIN
-	budgets as b on t.budgetID = b.budgetID
-lEFT JOIN
-	categories as c on b.categoryID = c.categoryID
-WHERE
-	t.userID = ?
-ORDER BY
-    transactionDate DESC
+	transactions as t on b.budgetID = b.budgetID
+WHERE	
+	b.userID = ?
+    AND t.published = 1
+    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+    AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
+ORDER BY 
+	transactionDate DESC
 LIMIT 10
 ");
 
@@ -38,19 +40,19 @@ $sql->close();
 
 //get spent amount
 $sql = $con->prepare("
-SELECT sum(t.transactionAmount)
+SELECT
+	SUM(t.transactionAmount)
 FROM
-    transactions as t
+	transactions as t 
 LEFT JOIN
-    budgets as b on t.budgetID = b.budgetID
-LEFT JOIN
-    categories as c on b.categoryID = c.categoryID
-WHERE 
-    t.userID = ?
+	budgets as b ON t.budgetID = b.budgetID
+WHERE
+	b.userID = ?
+    AND t.published = 1
     AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
     AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-    AND c.categoryName != 'income'
-    AND c.categoryName != 'savings'
+    AND t.transactionType != 'Income'
+    AND t.transactionType != 'Savings'
 ");
 
 $sql->bind_param('i', $_SESSION['id']);
@@ -66,14 +68,13 @@ FROM
     transactions as t
 LEFT JOIN
     budgets as b on t.budgetID = b.budgetID
-LEFT JOIN
-    categories as c on b.categoryID = c.categoryID
 WHERE 
-    t.userID = ?
+    b.userID = ?
+    AND t.published = 1
     AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
     AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-    AND c.categoryName != 'bills'
-    AND c.categoryName != 'expenses'
+    AND t.transactionType != 'Bills'
+    AND t.transactionType != 'Expenses'
 ");
 
 $sql->bind_param('i', $_SESSION['id']);
@@ -82,25 +83,24 @@ $sql->bind_result($monthlyIncome);
 $sql->fetch();
 $sql->close();
 
-// get category totals
+// get transaction type totals
 $sql = $con->prepare("
-SELECT c.categoryName, SUM(t.transactionAmount) as categorySum
+SELECT t.transactionType, SUM(t.transactionAmount) AS transactionTypeSum
 FROM	
 	transactions as t
 LEFT JOIN
 	budgets as b on t.budgetID = b.budgetID
-LEFT JOIN
-	categories as c on b.categoryID = c.categoryID
 WHERE
-	t.userID = ?
+	b.userID = ?
+    AND b.published = 1
 GROUP BY
-	c.categoryName
+	t.transactionType
 ");
 
 $sql->bind_param('i', $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();
-$categoryTotals = $result->fetch_all(MYSQLI_ASSOC);
+$transactionTypeTotals = $result->fetch_all(MYSQLI_ASSOC);
 $sql->close();
 
 // get budget totals
@@ -111,7 +111,8 @@ FROM
 LEFT JOIN
 	budgets as b on t.budgetID = b.budgetID
 WHERE 
-	t.userID = ?
+	b.userID = ?
+    AND b.published = 1
 GROUP BY
 	b.budgetName
 ");
@@ -135,7 +136,7 @@ $sql->close();
         <div class="columns">
             <div class="column is-three-quarters">
                 <h1 class="title">Welcome, <?=$firstName?> <?=$lastName?>!</h1>
-                <p class="subtitle">Your daily spending cash limit is: <span class="has-text-primary">(cash limit)</span></p>
+                <p class="subtitle">Here is your monthly review for : <span class="has-text-weight-bold"> <?= date("F, Y") ?> </span></p>
             </div>
             <div class="column">
                 <a href="addTrans.php" class="button is-primary is-outlined">Add Transaction</a>
@@ -147,9 +148,13 @@ $sql->close();
 <section class="section">
     <div class="container">
         <div class="card has-text-centered is-vcentered" id="dashboardMoney">
-            <p class="title"> <span class="has-text-danger has-text-weight-bold">$<?=$monthlySpent?></span> spent out of <span class="has-text-primary has-text-weight-bold">$<?=$monthlyIncome?></span></p>
+            <p class="title"> <span class="has-text-danger has-text-weight-bold">$<?=$monthlySpent == 0 ? 0 : $monthlySpent?></span> spent out of <span class="has-text-primary has-text-weight-bold">$<?=$monthlyIncome == 0 ? 0 : $monthlyIncome?></span></p>
             <?php
-                $percentage = $monthlySpent / $monthlyIncome * 100;
+                if ($monthlyIncome == 0) {
+                    $percentage = 0;
+                } else {
+                    $percentage = $monthlySpent / $monthlyIncome * 100;
+                }
             ?>
             <progress class="progress <?= $percentage >= 100 ? 'is-danger' : 'is-primary' ?>" value="<?= $percentage; ?>" max="100"><?= $percentage; ?>%</progress>
         </div>
@@ -159,18 +164,18 @@ $sql->close();
     <div class="container">
         <div class="columns">
             <div class="column">
-                <div class="card">
+                <div class="card is-fullheight">
                     <div class="card-header is-justify-content-center">
                         <p class="title has-text-centered m-2">Category Totals</p>
                     </div>
                     <div class="card-content">
                         <div class="columns is-multiline is-mobile has-text-centered">
-                            <?php foreach ($categoryTotals as $row): ?>
+                            <?php foreach ($transactionTypeTotals as $row): ?>
                             <div class="column is-half">
-                                <p class="has-text-weight-bold is-size-5"><?= $row['categoryName'] ?></p>
+                                <p class="has-text-weight-bold is-size-5"><?= $row['transactionType'] ?></p>
                             </div>
                             <div class="column is-half">
-                                <p class="is-size-5">$<?= $row['categorySum'] ?></p>
+                                <p class="is-size-5">$<?= $row['transactionTypeSum'] ?></p>
                             </div>
                             <?php endforeach; ?>
                         </div>
@@ -178,7 +183,7 @@ $sql->close();
                 </div>
             </div>
             <div class="column has-text-centered">
-                <div class="card">
+                <div class="card is-fullheight">
                     <div class="card-header is-justify-content-center">
                         <p class="title m-2">Budget Totals</p>
                     </div>
@@ -214,9 +219,9 @@ $sql->close();
             </thead>
             <tbody>
                 <?php foreach ($transactions as $row): ?>
-                    <tr class="<?= $row['categoryName'] == 'Income' ? 'is-selected' : '' ?>">
+                    <tr class="<?= $row['transactionType'] == 'Income' ? 'is-selected' : '' ?>">
                         <td class="has-text-weight-bold"><?=$row['transactionName']?></td>
-                        <td><?=$row['categoryName']?></td>
+                        <td><?=$row['transactionType']?></td>
                         <td><?=$row['budgetName']?></td>
                         <td><?=$row['transactionAmount']?></td>
                         <td><?=$row['transactionDate']?></td>
@@ -225,6 +230,8 @@ $sql->close();
             </tbody>
         </table>
     </div>
+    <?=$_SESSION['id']?>
 </section>
+
 
 <?=template_footer();?>
