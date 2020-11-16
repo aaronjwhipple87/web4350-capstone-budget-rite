@@ -22,7 +22,7 @@ $msg = "";
             <div class="column">
                 <div>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart orange">
+                        <svg viewBox="0 0 36 36" class="circular-chart green">
                             <path class="circle-bg" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -39,7 +39,7 @@ $msg = "";
             <div class="column">
                 <div>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
+                        <svg viewBox="0 0 36 36" class="circular-chart blue">
                             <path class="circle-bg" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -56,7 +56,7 @@ $msg = "";
             <div class="column">
                 <div>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart blue">
+                        <svg viewBox="0 0 36 36" class="circular-chart yellow">
                             <path class="circle-bg" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />

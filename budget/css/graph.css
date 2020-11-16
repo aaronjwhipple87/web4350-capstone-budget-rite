@@ -4,7 +4,7 @@
   }
   
   .single-chart {
-    width: 33%;
+    width: 100%;
     justify-content: space-around ;
   }
   
@@ -45,10 +45,42 @@
   .circular-chart.blue .circle {
     stroke: #3c9ee5;
   }
+
+  .circular-chart.brown .circle {
+    stroke: #847D00;
+  }
+
+  .circular-chart.red .circle {
+    stroke: #C50000;
+  }
+
+  .circular-chart.yellow .circle {
+    stroke: #FFF319;
+  }
   
   .percentage {
     fill: #666;
     font-family: sans-serif;
-    font-size: 0.5em;
+    font-size: 6px;
     text-anchor: middle;
+  }
+
+  .circles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+  }
+
+  section.homePage {
+    background-image: url("../img/laptop.jpg");
+    background-size: contain;
+  
+
+    
+  }
+
+  .register {
+    
   }

@@ -27,6 +27,7 @@ function template_header($title) {
     <title>$title</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/graph.css">
+    <link rel="stylesheet" href="scss/main.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="js/main.js"></script>
 </head>
