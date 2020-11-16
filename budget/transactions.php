@@ -5,15 +5,12 @@ $msg = "";
 
 
  //query that selects all the transactions for user
-$sql = $con->prepare('SELECT t.transactionName, t.transactionAmount, t.transactionDate, c.categoryName, t.transactionID 
+$sql = $con->prepare("SELECT  t.transactionID, b.budgetName, t.transactionType, t.transactionName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate 
 FROM transactions t
 INNER JOIN
     budgets b 
     on t.budgetID = b.budgetID
-INNER JOIN
-    categories c 
-    ON b.categoryID = c.categoryID
-WHERE t.userId = ?');
+WHERE b.userId = ?");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();
@@ -39,6 +36,8 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
             <table class="table is-bordered">
                 <thead>
                     <tr>
+                        <td>#</td>
+                        <td>Budget Name</td>
                         <td>Transaction Type</td>
                         <td>Transaction Name</td>
                         <td>Amount</td>
@@ -50,7 +49,13 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                 <?php foreach ($trans as $row): ?>
                     <tr>
                         <td>
-                            <?=$row['categoryName']?>
+                            <?=$row['transactionID']?>
+                        </td>
+                        <td>
+                            <?=$row['budgetName']?>
+                        </td>
+                        <td>
+                            <?=$row['transactionType']?>
                         </td>
                         <td>
                             <?=$row['transactionName']?>

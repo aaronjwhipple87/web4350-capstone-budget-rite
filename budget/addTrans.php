@@ -3,9 +3,18 @@ require 'functions.php';
 require 'session.php';
 $msg = "";
 
+//query that selects all the budget names for user
+$sql = $con->prepare("SELECT budgetName, budgetID
+FROM budgets
+WHERE userId = ?");
+$sql->bind_param("i", $_SESSION['id']);
+$sql->execute();
+$result = $sql->get_result();
+$budgets = $result->fetch_all(MYSQLI_ASSOC);
+
 if(isset($_POST["submit"])){
-        if($sql = $con->prepare('INSERT INTO transactions ( budgetID, transactionName, transactionAmount, transactionDate, userID ) VALUES (?,?,?, NOW(),?)')) {
-            $sql->bind_param('issi', $_POST['transType'],$_POST['transName'], $_POST['transAmount'], $_SESSION['id']);
+        if($sql = $con->prepare('INSERT INTO transactions ( transactionType, transactionName, transactionAmount, transactionDate, budgetID ) VALUES (?,?,?, NOW(),?)')) {
+            $sql->bind_param('sssi', $_POST['transType'],$_POST['transName'], $_POST['transAmount'], $_POST['budgetID']);
             $sql->execute();
             $msg = 'Transaction created successfully!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -30,6 +39,7 @@ if(isset($_POST["submit"])){
     <section class="section">
         <div class="container">
             <h1 class="title">Create Transaction</h1>
+
             <form action="addTrans.php" method="post">
 
                 <div class="field">
@@ -38,13 +48,28 @@ if(isset($_POST["submit"])){
                         <select name="transType" required>
                             <div class="select">
                                 <option value="">Select</option>
-                                <option value="1">Bills</option>
-                                <option value="3">Income</option>
-                                <option value="2">Expenses</option>
-                                <option value="4">Savings</option>
+                                <option value="Bills">Bills</option>
+                                <option value="Income">Income</option>
+                                <option value="Expenses">Expenses</option>
+                                <option value="Savings">Savings</option>
+
                             </div>
                         </select>
                     </div>
+                </div>
+                <div class="field">
+                    <label class="label">Budget Name</label>
+                    <div class="select" >
+                        <select name="budgetID" required>
+                            <div class="select">
+                                <option value="">Select</option>
+                                <?php foreach ($budgets as $row): ?>
+                                <option value="<?=$row['budgetID']?>"><?=$row['budgetName']?> </option>
+                                <?php endforeach;?>
+                            </div>
+                        </select>
+                    </div>
+                    <p class="has-text-danger">Please note, you have to have associate with a budget created. If you have not created a budget yet, please <a href="addBudget.php"> create one</a>.</p>
                 </div>
                 <div class="field">
                     <label class="label">Transaction Name</label>
@@ -52,6 +77,7 @@ if(isset($_POST["submit"])){
                         <input class="input" type="text" name="transName" required>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label">Amount</label>
                     <div class="control">

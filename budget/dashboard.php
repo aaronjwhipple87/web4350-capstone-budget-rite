@@ -139,7 +139,7 @@ $sql->close();
             </div>
             <div class="column">
                 <a href="addTrans.php" class="button is-primary is-outlined">Add Transaction</a>
-                <a class="button is-primary is-outlined">Create Budget</a>
+                <a href="addBudget.php" class="button is-primary is-outlined">Create Budget</a>
             </div>
         </div>
     </div>

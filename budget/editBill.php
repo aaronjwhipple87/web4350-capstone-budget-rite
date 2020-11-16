@@ -50,7 +50,7 @@ if(isset($_POST["edit"])) {
 
 ?>
 
-<?=template_header('Create Bill');?>
+<?=template_header('Edit Bill');?>
 
 <?=template_nav();?>
 
