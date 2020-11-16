@@ -121,17 +121,12 @@ if(isset($_POST["changePassword"])){
 <div class="container mt-3">
     <h2 class="title">Settings</h2>
     <div class="columns">
-        <div class="column is-one-quarter">
-            <p class="subtitle">Profile</p>
-            <p class="subtitle">Notifications</p>
-            <p class="subtitle">Accounts</p>
-        </div>
         <div class="column">
-            <p class="title">Profile Info</p>
+<!--            <p class="title">Profile Info</p>-->
             <div class="columns is-multiline">
-                <div class="column is-one-third has-text-centered">
-                    <img src="https://via.placeholder.com/150" alt="">
-                </div>
+<!--                <div class="column is-one-third has-text-centered">-->
+<!--                    <img src="https://via.placeholder.com/150" alt="">-->
+<!--                </div>-->
                 <div class="column">
                     <form action="settings.php" method="post" onsubmit="return confirm('Are you sure you want to edit name and email?')";>
                         <div class="field is-horizontal">

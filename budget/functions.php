@@ -39,49 +39,91 @@ EOT;
 
 // Template navbar
 function template_nav() {
+  //not logged in
+  if (!isset($_SESSION['loggedin'])) {
     echo <<<EOT
 
-<nav class="navbar is-light" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="index.php">
-      <img src="img/BR-icon.png" alt="">
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-
-    <div class="navbar-start">
-     <a class="navbar-item" href="index.php">
-        Home
-      </a>
-      <a class="navbar-item" href="about.php">
-        About us
-      </a>
-    </div>
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.php">
+          <img src="img/BR-icon.png" alt="">
+        </a>
     
-     <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a href="register.php"class="button is-primary">
-            Register
-          </a>
-          <a href="login.php" class="button is-success">
-            Login
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+    
+        <div class="navbar-start">
+         <a class="navbar-item" href="dashboard.php">
+            Home
           </a>
         </div>
+        
+         <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a href="register.php"class="button is-primary is-outlined">
+                Register
+              </a>
+              <a href="login.php" class="button is-primary">
+                Login
+              </a>
+            </div>
+          </div>
+        </div>
+        
       </div>
-    </div>
-    
-  </div>
-</nav>
+    </nav>
 
 EOT;
+  } else {
+    //logged in
+    echo <<<EOT
+
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.php">
+          <img src="img/BR-icon.png" alt="">
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+    
+        <div class="navbar-start">
+         <a class="navbar-item" href="dashboard.php">
+            Home
+          </a>
+          <a class="navbar-item" href="categories.php">
+            Categories
+          </a>
+        </div>
+        
+         <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a href="logout.php"class="button is-primary">
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </nav>
+    
+    EOT;
+  }
 }
 
 // Template footer
@@ -89,16 +131,15 @@ function template_footer() {
     echo <<<EOT
 <footer class="footer">
   <div class="columns is-centered is-vcentered">
-    <div class="column is-one-third has-text-centered">
+    <div class="column is-one-third has-text-centered" id="footerImage">
         <img src="img/BR_small-icon.png" alt="">
     </div>
     <div class="column is-one-third has-text-centered">
-      <a href="index.php">Home</a> |
-      <a href="about.php">About Us</a> |
-      <a href="login.php">Login</a> |
-      <a href="register.php">Register</a>
+      <a href="dashboard.php" class="has-text-primary">Home</a> |
+      <a href="login.php" class="has-text-primary">Login</a> |
+      <a href="register.php" class="has-text-primary">Register</a>
       <br><p>&#169;&nbsp;2020 BudgetRite</p>
-      <p><a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a></p>
+      <p><a href="#" class="has-text-primary">Privacy Policy</a> and <a href="#" class="has-text-primary">Terms of Use</a></p>
     </div>
     <div class="column social-media is-one-third has-text-centered">
       <div class="columns is-vcentered is-centered is-mobile">

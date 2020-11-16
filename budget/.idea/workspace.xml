@@ -2,26 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e3f6866-de1f-4d18-a84e-edc2a0b70041" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/addBudget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deleteBudget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/editBudget.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/BR-icon.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/BR-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/BR_small-icon-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/BR_small-icon.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/BR_small-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/chart-line-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/cog-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/copyright-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/exchange-alt-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/facebook-brands.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/file-invoice-dollar-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/hand-holding-usd-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/instagram-brands.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/money-bill-alt-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/piggy-bank-solid.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/twitter-brands.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/user-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/addTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/budgets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deleteTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/deleteTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editBill.php" beforeDir="false" afterPath="$PROJECT_DIR$/editBill.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/editTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -40,14 +30,28 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -59,16 +63,35 @@
       <option name="presentableId" value="Default" />
       <updated>1603233227579</updated>
       <workItem from="1603233228718" duration="29000" />
+      <workItem from="1605200120997" duration="9950000" />
+      <workItem from="1605464206743" duration="3616000" />
+      <workItem from="1605469342621" duration="16399000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605226168488">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605226168488" />
     <state x="-1424" y="364" key="FileChooserDialogImpl" timestamp="1603233255945">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1424" y="364" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603233255945" />
+    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1605482524530">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605482524530" />
+    <state x="-1304" y="240" key="run.anything.popup" timestamp="1605482196374">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1304" y="240" key="run.anything.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605482196374" />
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605473820987">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605473820987" />
   </component>
 </project>

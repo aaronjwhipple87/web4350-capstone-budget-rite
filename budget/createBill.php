@@ -3,22 +3,22 @@ require 'functions.php';
 require 'session.php';
 $msg = "";
 
-if(isset($_POST["submit"])){
-
-        if($sql = $con->prepare('INSERT INTO bills ( billType, billName, billAmount, billdueDate, userID ) VALUES (?,?,?,?,?)')) {
-            $sql->bind_param('ssisi', $_POST['billType'],$_POST['billName'], $_POST['billAmount'], $_POST['billdueDate'], $_SESSION['id']);
-            $sql->execute();
-            $msg = 'Bill created successfully!';
-            echo "<script type='text/javascript'>alert('$msg');</script>";
-            header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/bills.php");
-
-        } else {
-            $msg = "Could not prepare statement";
-            echo "<script type='text/javascript'>alert('$msg');</script>";
-        }
-
-        $sql->close();
-}
+//if(isset($_POST["submit"])){
+//
+//        if($sql = $con->prepare('INSERT INTO bills ( billType, billName, billAmount, billdueDate, userID ) VALUES (?,?,?,?,?)')) {
+//            $sql->bind_param('ssisi', $_POST['billType'],$_POST['billName'], $_POST['billAmount'], $_POST['billdueDate'], $_SESSION['id']);
+//            $sql->execute();
+//            $msg = 'Bill created successfully!';
+//            echo "<script type='text/javascript'>alert('$msg');</script>";
+//            header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/bills.php");
+//
+//        } else {
+//            $msg = "Could not prepare statement";
+//            echo "<script type='text/javascript'>alert('$msg');</script>";
+//        }
+//
+//        $sql->close();
+//}
 
 
 

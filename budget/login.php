@@ -40,7 +40,7 @@ if(isset($_POST["login"])){
                 $_SESSION['id'] = $userID;
 
 
-                header('Location: transactions.php');
+                header('Location: dashboard.php');
 
             } else {
 
@@ -83,11 +83,8 @@ if(isset($_POST["login"])){
         <div id="navbarBasicExample" class="navbar-menu">
 
             <div class="navbar-start">
-                <a class="navbar-item" href="index.php">
+                <a class="navbar-item" href="dashboard.php">
                     Home
-                </a>
-                <a class="navbar-item" href="about.php">
-                    About us
                 </a>
             </div>
 
@@ -97,9 +94,6 @@ if(isset($_POST["login"])){
                         <a href="register.php"class="button is-primary">
                             Register
                         </a>
-<!--                        <a href="login.php" class="button is-light">-->
-<!--                            Login-->
-<!--                        </a>-->
                     </div>
                 </div>
             </div>

@@ -46,7 +46,7 @@ if(isset($_POST["submit"])){
                 $stmt->execute();
                 $msg = 'You have successfully registered, you can now login!';
                 echo "<script type='text/javascript'>alert('$msg');</script>";
-                header( "Refresh:5; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/login.php");
+                header( "Refresh: .5 ; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/login.php");
 
 
             } else {
@@ -84,20 +84,16 @@ if(isset($_POST["submit"])){
     <div id="navbarBasicExample" class="navbar-menu">
 
         <div class="navbar-start">
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="dashboard.php">
                 Home
             </a>
-            <a class="navbar-item" href="about.php">
-                About us
-            </a>
+
         </div>
 
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <!--                        <a href="register.php"class="button is-primary">-->
-                    <!--                            Register-->
-                    <!--                        </a>-->
+
                     <a href="login.php" class="button is-success">
                         Login
                     </a>

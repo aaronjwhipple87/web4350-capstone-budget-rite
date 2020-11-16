@@ -48,8 +48,8 @@ $msg = "";
                 <a href="settings.php"><img src="img/cog-solid.svg" alt="Cog"></a>
             </div>
             <div class="column">
-                Account
-                <a href="account.php"><img src="img/user-solid.svg" alt="User image"></a>
+                Budgets
+                <a href="budgets.php"><img src="img/user-solid.svg" alt="User image"></a>
             </div>
         </div>
     </div>
