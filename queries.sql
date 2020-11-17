@@ -1,31 +1,31 @@
 -- top 10 transactions query
-SELECT t.transactionName, c.categoryName, b.budgetName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate
+SELECT 
+	t.transactionName, t.transactionType, b.budgetName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate
 FROM
-	transactions as t 
+	budgets as b 
 LEFT JOIN
-	budgets as b on t.budgetID = b.budgetID
-lEFT JOIN
-	categories as c on b.categoryID = c.categoryID
-WHERE
-	t.userID = 1
-ORDER BY
+	transactions as t on b.budgetID = b.budgetID
+WHERE	
+	b.userID = 1
+ 	AND t.published = 1
+ORDER BY 
 	transactionDate DESC
 LIMIT 10
 
 -- get spent amount
-SELECT sum(t.transactionAmount)
+SELECT
+	SUM(t.transactionAmount)
 FROM
-    transactions as t
+	transactions as t 
 LEFT JOIN
-    budgets as b on t.budgetID = b.budgetID
-LEFT JOIN
-    categories as c on b.categoryID = c.categoryID
-WHERE 
-    t.userID = 1
+	budgets as b ON t.budgetID = b.budgetID
+WHERE
+	b.userID = 1
+    AND t.published = 1
     AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
     AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-    AND c.categoryName != 'income'
-    AND c.categoryName != 'savings'
+    AND t.transactionType != 'Income'
+    AND t.transactionType != 'Savings'
 
 -- get income amount
 SELECT sum(t.transactionAmount)
@@ -33,27 +33,25 @@ FROM
     transactions as t
 LEFT JOIN
     budgets as b on t.budgetID = b.budgetID
-LEFT JOIN
-    categories as c on b.categoryID = c.categoryID
 WHERE 
-    t.userID = 1
+    b.userID = 1
+    AND t.published = 1
     AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
     AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-    AND c.categoryName != 'bills'
-    AND c.categoryName != 'expenses'
+    AND t.transactionType != 'Bills'
+    AND t.transactionType != 'Expenses'
 
--- get cateogry totals
-SELECT c.categoryName, SUM(t.transactionAmount) as categorySum
+-- get transaction type totals
+SELECT t.transactionType, SUM(t.transactionAmount) AS transactionTypeSum
 FROM	
 	transactions as t
 LEFT JOIN
 	budgets as b on t.budgetID = b.budgetID
-LEFT JOIN
-	categories as c on b.categoryID = c.categoryID
 WHERE
-	t.userID = 1
+	b.userID = 1
+    AND b.published = 1
 GROUP BY
-	c.categoryName
+	t.transactionType
 
 -- get budget totals
 SELECT b.budgetName, SUM(t.transactionAmount) as budgetSum
@@ -62,7 +60,8 @@ FROM
 LEFT JOIN
 	budgets as b on t.budgetID = b.budgetID
 WHERE 
-	t.userID = 1
+	b.userID = 1
+    AND b.published = 1
 GROUP BY
 	b.budgetName
 

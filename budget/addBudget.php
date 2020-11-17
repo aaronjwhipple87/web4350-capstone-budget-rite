@@ -10,8 +10,8 @@ if(isset($_POST["submit"])){
     $notes = !empty($_POST['notes']) ? $_POST['notes']: NULL;
 
 
-    if($sql = $con->prepare('SELECT * FROM budgets WHERE budgetName = ?')) {
-        $sql->bind_param('s', $_POST['budgetName']);
+    if($sql = $con->prepare('SELECT * FROM budgets WHERE budgetName = ? AND userID = ?')) {
+        $sql->bind_param('s', $_POST['budgetName'], $_SESSION['id']);
         $sql->execute();
         $sql->store_result();
 
