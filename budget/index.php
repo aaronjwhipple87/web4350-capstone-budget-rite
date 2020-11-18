@@ -13,7 +13,7 @@ include 'functions.php';
         <h1 class="title">Budget Application</h1>
                 <div class="registerBox">
                     <h2 class="subtitle">To Register for an account, click the button below</h2>
-                    <button class="button" href="register.php">Register</button>
+                    <a class="registerBtn" href="register.php">Register</a>
                 </div>
         <div class="columns circles">
             <div class="column">
@@ -28,7 +28,7 @@ include 'functions.php';
                         <text x="18" y="20.35" class="percentage">100% Free</text>
                     </svg>
                 </div>
-                <p class="circleText">No payments necessary</p>
+                <p class="circleText"><br>No payments necessary</p>
             </div>
             <div class="column">
             <div class="single-chart">
@@ -56,7 +56,7 @@ include 'functions.php';
                         <text x="18" y="20.35" class="percentage">Simple</text>
                     </svg>
                 </div>
-                <p class="circleText">Easy to utilize</p>
+                <p class="circleText"><br>Easy to utilize</p>
             </div>
         </div>
     </div>

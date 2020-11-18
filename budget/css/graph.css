@@ -101,4 +101,9 @@
     .circular-chart{
       width: 50%;
     }
+    
+  .circleText{
+    max-width: 70%;
+    margin: auto;
+  }
   }

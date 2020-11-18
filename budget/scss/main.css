@@ -7573,6 +7573,18 @@ div.registerBox {
   color: #fff;
 }
 
+.registerBtn {
+  color: #fff;
+  background-color: #1196ED;
+  padding: 6px 10px;
+  border: 2px solid #000;
+}
+
 @media only screen and (max-width: 950px){
+
+  .registerBox{
+    max-width: 80%;
+    font-size: 12px;
+  }
 
 }
