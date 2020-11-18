@@ -11,7 +11,7 @@ if(isset($_POST["submit"])){
 
 
     if($sql = $con->prepare('SELECT * FROM budgets WHERE budgetName = ? AND userID = ?')) {
-        $sql->bind_param('s', $_POST['budgetName'], $_SESSION['id']);
+        $sql->bind_param('ss', $_POST['budgetName'], $_SESSION['id']);
         $sql->execute();
         $sql->store_result();
 
@@ -47,7 +47,7 @@ if(isset($_POST["submit"])){
 
 ?>
 
-<?=template_header('Add Transaction');?>
+<?=template_header('Add Budget');?>
 
 <?=template_nav();?>
 

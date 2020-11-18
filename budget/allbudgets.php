@@ -5,9 +5,13 @@ $msg = "";
 
 
 //query that selects all the transactions for user
-$sql = $con->prepare("SELECT budgetID, budgetName, plannedAmount, appliedAmount, DATE_FORMAT(dueDate, '%m-%d-%y') AS dueDate, DATE_FORMAT(created, '%m-%d-%y') AS created, notes
+$sql = $con->prepare("SELECT budgetID, budgetName, plannedAmount, appliedAmount, DATE_FORMAT(dueDate, '%m-%d-%y') AS dueDate, DATE_FORMAT(created, '%m-%d-%y') AS created, notes, published, 
+CASE 
+    WHEN published = 1 THEN '&#10004;'
+    ELSE ' '  
+END AS published
 FROM budgets
-WHERE userId = ? AND published = 1");
+WHERE userId = ?");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();
@@ -16,20 +20,17 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
-<?=template_header('Current Budgets');?>
+<?=template_header('All Budgets');?>
 
 <?=template_nav();?>
 
     <section class="section">
         <div class="container">
-            <h1 class="title">Current Budgets</h1>
-            <p class="subtitle">Welcome, you can view, edit or delete budgets below.</p>
-            <a href="addBudget.php" class="button is-success is-small">
-                <span class="icon"><i class="fas fa-plus"></i></span>
-                <span>Add Budget</span>
-            </a>
-            <a href="allbudgets.php" class="button is-primary is-small">
-                <span>See All Budgets</span>
+            <h1 class="title">All Budgets</h1>
+            <p class="subtitle">Welcome, below are all budgets created, including deleted ones. <br>
+            You can view, edit, or add old budgets to your current budgets list.</p>
+            <a href="budgets.php" class="button is-primary is-small">
+                <span>See Current Budgets List</span>
             </a>
         </div>
         <div class="container pt-3">
@@ -43,6 +44,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                     <td>Due Date</td>
                     <td>Notes</td>
                     <td>Created</td>
+                    <td>Current List</td>
                     <td>Action</td>
                 </tr>
                 </thead>
@@ -70,13 +72,19 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                         <td>
                             <?=$row['created']?>
                         </td>
+                        <td >
+                            <?=$row['published']?>
+                        </td>
                         <td>
                             <a href="editBudget.php?id=<?=$row['budgetID']?>" class="button is-link is-small" title="Edit Budget">
                                 <span class="icon"><i class="fas fa-edit"></i></span>
                             </a>
-                            <a href="deleteBudget.php?id=<?=$row['budgetID']?>" class="button is-danger is-small" title="Delete Budget">
-                                <span class="icon"><i class="fas fa-trash"></i></span>
+                            <?php if($row['published'] == ' '){ ?>
+
+                            <a href="publishBudget.php?id=<?=$row['budgetID']?>"  class="button is-primary is-small" title="Add Budget To Current">
+                                <span  class="icon"><i  class="fas fa-plus"></i></i></span>
                             </a>
+                            <?php } ?>
                         </td>
                     </tr>
                 <?php endforeach;?>

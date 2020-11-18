@@ -3,26 +3,26 @@ require "functions.php";
 require 'session.php';
 $msg = '';
 
-if(isset($_POST["delete"])){
+if(isset($_POST["publish"])){
 
-    if ($sql = $con->prepare('SELECT published FROM budgets WHERE budgetID = ?')) {
+    if ($sql = $con->prepare('SELECT * FROM budgets WHERE budgetID = ?')) {
         $sql->bind_param("i", $_GET['id']);
         $sql->execute();
         $sql->store_result();
 
-        //un-publish budget from current list
+        //publish budget from current list
         if ($sql->num_rows > 0) {
-            if(['published'] == 0) {
+//            if(['published'] == 0) {
                 $sql = $con->prepare('UPDATE budgets SET published = 1 WHERE budgetID = ?');
                 $sql->bind_param('i', $_GET['id']);
                 $sql->execute();
-            }else{
-                $sql = $con->prepare('UPDATE budgets SET published = 0 WHERE budgetID = ?');
-                $sql->bind_param('i', $_GET['id']);
-                $sql->execute();
-            }
+//            }else{
+//                $sql = $con->prepare('UPDATE budgets SET published = 0 WHERE budgetID = ?');
+//                $sql->bind_param('i', $_GET['id']);
+//                $sql->execute();
+//            }
 
-            $msg = 'Budget Removed successfully!';
+            $msg = 'Budget published successfully!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
             header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/budgets.php");
         }else {
@@ -51,12 +51,12 @@ if(isset($_POST["delete"])){
     <!---document main content goes here -->
     <section class="section">
         <div class="container">
-            <h1 class="title">Remove Budget</h1>
-            <h2 class="subtitle">Are you sure you want to remove budget from current list?</h2>
-            <form action="deleteBudget.php?id=<?=$_GET['id']?>" method="post">
+            <h1 class="title">Publish Budget to Current List</h1>
+            <h2 class="subtitle">Are you sure you want to publish budget to current list?</h2>
+            <form action="publishBudget.php?id=<?=$_GET['id']?>" method="post">
                 <div class="buttons">
-                    <button type="submit" name="delete" class="button is-success">Yes</button>
-                    <a href="budgets.php" class="button is-danger">No</a>
+                    <button type="submit" name="publish" class="button is-success">Yes</button>
+                    <a href="allbudgets.php" class="button is-danger">No</a>
                 </div>
             </form>
         </div>

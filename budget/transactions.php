@@ -62,6 +62,7 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                         </td>
                         <td>
                             <?=$row['transactionAmount']?>
+
                         </td>
                         <td>
                             <?=$row['transactionDate']?>
