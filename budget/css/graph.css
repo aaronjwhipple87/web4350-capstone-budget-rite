@@ -59,9 +59,9 @@
   }
   
   .percentage {
-    fill: #666;
+    fill: #fff;
     font-family: sans-serif;
-    font-size: 6px;
+    font-size: 5px;
     text-anchor: middle;
   }
 
@@ -73,14 +73,32 @@
     align-content: center;
   }
 
+  .circleText {
+    color: #fff;
+    background-color: rgba(0,0,0, .5);
+    height: 70px;
+    vertical-align: center;
+  }
+
   section.homePage {
     background-image: url("../img/laptop.jpg");
-    background-size: contain;
-  
+    background-position: center;
 
     
   }
 
-  .register {
+  @media only screen and (max-width: 950px){
+    .circles {
+      display: flex;
+      flex-direction: column;
+  
+    }
+
+    section.homePage{
+      background-size: cover;
+    }
     
+    .circular-chart{
+      width: 50%;
+    }
   }

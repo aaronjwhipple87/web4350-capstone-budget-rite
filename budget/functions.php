@@ -84,7 +84,7 @@ EOT;
   } else {
     //logged in
     echo <<<EOT
-
+        
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="index.php">

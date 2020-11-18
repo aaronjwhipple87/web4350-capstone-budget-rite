@@ -11,14 +11,10 @@ include 'functions.php';
 <section class="section homePage">
     <div class="container">
         <h1 class="title">Budget Application</h1>
-        <div class="columns">
-            <div class="column">
-                <div class="register">
-                    <h2>To Register for an account, click the button below</h2>
+                <div class="registerBox">
+                    <h2 class="subtitle">To Register for an account, click the button below</h2>
                     <button class="button" href="register.php">Register</button>
                 </div>
-            </div>
-        </div>
         <div class="columns circles">
             <div class="column">
             <div class="single-chart">
@@ -32,7 +28,7 @@ include 'functions.php';
                         <text x="18" y="20.35" class="percentage">100% Free</text>
                     </svg>
                 </div>
-                <p>No payments necessary</p>
+                <p class="circleText">No payments necessary</p>
             </div>
             <div class="column">
             <div class="single-chart">
@@ -46,7 +42,7 @@ include 'functions.php';
                         <text x="18" y="20.35" class="percentage">Works Offline</text>
                     </svg>
                 </div>
-                <p>Great to use offline <br> in case you lose internet <br> connection</p>
+                <p class="circleText">Great to use offline <br> in case you lose internet <br> connection</p>
             </div>
             <div class="column">
             <div class="single-chart">
@@ -60,7 +56,7 @@ include 'functions.php';
                         <text x="18" y="20.35" class="percentage">Simple</text>
                     </svg>
                 </div>
-                <p>Easy to utilize</p>
+                <p class="circleText">Easy to utilize</p>
             </div>
         </div>
     </div>
