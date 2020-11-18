@@ -42,7 +42,7 @@ if(isset($_POST["publish"])){
 
 ?>
 
-<?=template_header('Delete Budget');?>
+<?=template_header('Publish Budget');?>
 
 <?=template_nav();?>
 
@@ -56,7 +56,7 @@ if(isset($_POST["publish"])){
             <form action="publishBudget.php?id=<?=$_GET['id']?>" method="post">
                 <div class="buttons">
                     <button type="submit" name="publish" class="button is-success">Yes</button>
-                    <a href="allbudgets.php" class="button is-danger">No</a>
+                    <a href="allBudgets.php" class="button is-danger">No</a>
                 </div>
             </form>
         </div>

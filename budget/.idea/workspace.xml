@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e3f6866-de1f-4d18-a84e-edc2a0b70041" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/allbudgets.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/publishBudget.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allTransactions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publishTrans.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addBudget.php" beforeDir="false" afterPath="$PROJECT_DIR$/addBudget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/budgets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deleteBudget.php" beforeDir="false" afterPath="$PROJECT_DIR$/deleteBudget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allbudgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/allbudgets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publishBudget.php" beforeDir="false" afterPath="$PROJECT_DIR$/publishBudget.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +61,7 @@
       <workItem from="1605200120997" duration="9950000" />
       <workItem from="1605464206743" duration="3616000" />
       <workItem from="1605469342621" duration="16743000" />
-      <workItem from="1605710716866" duration="15097000" />
+      <workItem from="1605710716866" duration="17690000" />
     </task>
     <servers />
   </component>
@@ -79,10 +77,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1424" y="364" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603233255945" />
-    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1605720301061">
+    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1605729161541">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605720301061" />
+    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605729161541" />
     <state x="-1304" y="240" key="run.anything.popup" timestamp="1605482196374">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>

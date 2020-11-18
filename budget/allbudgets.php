@@ -4,7 +4,7 @@ require 'session.php';
 $msg = "";
 
 
-//query that selects all the transactions for user
+//query that selects all the budgets for user
 $sql = $con->prepare("SELECT budgetID, budgetName, plannedAmount, appliedAmount, DATE_FORMAT(dueDate, '%m-%d-%y') AS dueDate, DATE_FORMAT(created, '%m-%d-%y') AS created, notes, published, 
 CASE 
     WHEN published = 1 THEN '&#10004;'
