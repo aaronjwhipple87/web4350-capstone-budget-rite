@@ -33,7 +33,7 @@ if(isset($_POST["edit"])) {
 
             $msg = 'You have successfully changed your Budget!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header("Refresh:.5; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/budgets.php");
+            header("Refresh:.5; url=budgets.php");
         } else {
             $msg = "Could not prepare ";
             echo "<script type='text/javascript'>alert('$msg');</script>";

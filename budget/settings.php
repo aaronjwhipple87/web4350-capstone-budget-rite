@@ -36,7 +36,7 @@ if(isset($_POST["edit"])) {
 
             $msg = 'You have successfully changed your First Name, Last Name, and Email!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header("Refresh:.5; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/categories.php");
+            header("Refresh:.5; url=dashboard.php");
         } else {
             $msg = "Could not prepare ";
             echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -81,7 +81,7 @@ if(isset($_POST["changePassword"])){
 
                     $msg = 'You have successfully changed your password!';
                     echo "<script type='text/javascript'>alert('$msg');</script>";
-                    header("Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/login.php");
+                    header("Refresh:1; url=dashboard.php");
                 } else {
                     $msg = "Could not prepare statement";
                     echo "<script type='text/javascript'>alert('$msg');</script>";

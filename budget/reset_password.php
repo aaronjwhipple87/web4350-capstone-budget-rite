@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
 
                 $msg = 'You have successfully changed your password, you can now login!';
                 echo "<script type='text/javascript'>alert('$msg');</script>";
-                header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/login.php");
+                header( "Refresh:1; url=login.php");
             }else {
                 $msg = "Could not prepare statement";
                 echo "<script type='text/javascript'>alert('$msg');</script>";

@@ -24,7 +24,7 @@ if(isset($_POST["publish"])){
 
             $msg = 'Budget published successfully!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/budgets.php");
+            header( "Refresh:1; url=budgets.php");
         }else {
             $msg = "Could not prepare statement";
             echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -33,7 +33,7 @@ if(isset($_POST["publish"])){
 
         $msg= 'No record with that ID!';
         echo "<script type='text/javascript'>alert('$msg');</script>";
-        header("Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/budgets.php");
+        header("Refresh:1; url=budgets.php");
 
 
     }

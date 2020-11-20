@@ -29,7 +29,7 @@ if(isset($_POST["submit"])){
 
             $msg = 'Please check your email for reset link';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/index.php");
+            header( "Refresh:1; url=index.php");
 
         } else {
             //email  does not exists

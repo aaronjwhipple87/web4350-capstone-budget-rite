@@ -46,7 +46,7 @@ if(isset($_POST["submit"])){
                 $stmt->execute();
                 $msg = 'You have successfully registered, you can now login!';
                 echo "<script type='text/javascript'>alert('$msg');</script>";
-                header( "Refresh: .5 ; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/login.php");
+                header( "Refresh: .5 ; url= login.php ");
 
 
             } else {

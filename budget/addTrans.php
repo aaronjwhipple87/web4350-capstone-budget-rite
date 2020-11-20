@@ -18,7 +18,7 @@ if(isset($_POST["submit"])){
             $sql->execute();
             $msg = 'Transaction created successfully!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header( "Refresh:1; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/transactions.php");
+            header( "Refresh:1; url=transactions.php");
 
         } else {
             $msg = "Could not prepare statement";

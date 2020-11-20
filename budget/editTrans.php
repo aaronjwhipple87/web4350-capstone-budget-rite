@@ -46,7 +46,7 @@ if(isset($_POST["edit"])) {
 
             $msg = 'You have successfully changed your Transaction!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header("Refresh:.5; url=http://icarus.cs.weber.edu/~aw54652/web_4350/budget/transactions.php");
+            header("Refresh:.5; url=transactions.php");
         } else {
             $msg = "Could not prepare ";
             echo "<script type='text/javascript'>alert('$msg');</script>";
