@@ -11,7 +11,9 @@ CASE
     ELSE ' '  
 END AS published
 FROM budgets
-WHERE userId = ?");
+WHERE userId = ?
+ORDER BY 
+	created DESC");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();

@@ -2,9 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e3f6866-de1f-4d18-a84e-edc2a0b70041" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/allBills.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allExpenses.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allIncome.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allSavings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/expenses.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/allTransactions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allbudgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/allbudgets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bills.php" beforeDir="false" afterPath="$PROJECT_DIR$/bills.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/budgets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debt.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deleteTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/deleteTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/editTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/income.php" beforeDir="false" afterPath="$PROJECT_DIR$/income.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publishTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/publishTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings.php" beforeDir="false" afterPath="$PROJECT_DIR$/savings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +76,7 @@
       <workItem from="1605469342621" duration="16743000" />
       <workItem from="1605710716866" duration="17995000" />
       <workItem from="1605835967022" duration="1404000" />
-      <workItem from="1606055614046" duration="5342000" />
+      <workItem from="1606055614046" duration="8466000" />
     </task>
     <servers />
   </component>
@@ -80,10 +96,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1424" y="364" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603233255945" />
-    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1605729161541">
+    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1606064099363">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1605729161541" />
+    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606064099363" />
     <state x="-1304" y="240" key="run.anything.popup" timestamp="1605482196374">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>

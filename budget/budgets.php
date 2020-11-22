@@ -7,7 +7,9 @@ $msg = "";
 //query that selects all the transactions for user
 $sql = $con->prepare("SELECT budgetID, budgetName, plannedAmount, appliedAmount, DATE_FORMAT(dueDate, '%m-%d-%y') AS dueDate, DATE_FORMAT(created, '%m-%d-%y') AS created, notes
 FROM budgets
-WHERE userId = ? AND published = 1");
+WHERE userId = ? AND published = 1
+ORDER BY 
+	dueDate DESC");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();

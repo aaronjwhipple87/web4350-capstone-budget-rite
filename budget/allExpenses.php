@@ -14,6 +14,7 @@ INNER JOIN
     budgets b 
     on t.budgetID = b.budgetID
 WHERE b.userId = ?
+AND t.transactionType = 'Expenses'
 ORDER BY 
 	transactionDate DESC");
 $sql->bind_param("i", $_SESSION['id']);
@@ -24,17 +25,17 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
-<?=template_header('All Transactions');?>
+<?=template_header('All Expenses');?>
 
 <?=template_nav();?>
 
     <section class="section">
         <div class="container">
-            <h1 class="title">All Transactions</h1>
-            <p class="subtitle">Welcome, below are all transactions created, including deleted ones. <br>
-                You can view, edit, or add old transactions to your current transactions list.</p>
-            <a href="transactions.php" class="button is-primary is-small">
-                <span>See Current Transactions List</span>
+            <h1 class="title">All Expenses</h1>
+            <p class="subtitle">Welcome, below are all expenses created, including deleted ones. <br>
+                You can view, edit, or add old bills to your current expenses list.</p>
+            <a href="expenses.php" class="button is-primary is-small">
+                <span>See Current Expenses List</span>
             </a>
         </div>
         <div class="container pt-3">

@@ -3,16 +3,22 @@ require 'functions.php';
 require 'session.php';
 $msg = "";
 
-// get info from db
-$sql = $con->prepare('SELECT savingsType, savingsName, savingsAmount FROM users WHERE userId = ?');
 
-// In this case we can use the account ID to get the account info.
-$sql->bind_param('i', $_SESSION['id']);
+//query that selects all the transactions for user
+$sql = $con->prepare("SELECT  t.published, t.transactionID, b.budgetName, t.transactionType, t.transactionName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate 
+FROM transactions t
+INNER JOIN
+    budgets b 
+    on t.budgetID = b.budgetID
+WHERE b.userId = ?
+AND t.transactionType = 'Savings'
+AND t.published = 1
+ORDER BY 
+	transactionDate DESC");
+$sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
-$sql->bind_result($userPassword, $email, $firstName, $lastName);
-$sql->fetch();
-$sql->close();
-
+$result = $sql->get_result();
+$trans = $result->fetch_all(MYSQLI_ASSOC);
 
 
 ?>
@@ -21,65 +27,67 @@ $sql->close();
 
 <?=template_nav();?>
 
-<!-- document main content goes here -->
-<section class="section">
-    <div class="container">
-        <h1 class="title">Savings</h1>
-        <div class="columns">
-            <div class="column">
-                <div class="single-chart">
-                    <svg viewBox="0 0 36 36" class="circular-chart blue">
-                        <path class="circle-bg" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <text x="18" y="20.35" class="percentage">30%</text>
-                    </svg>
-                </div>
-                <h3>Savings Type</h3>
-                <p></p>
-                <h3>Name</h3>
-                <p></p>
-                <h3>Amount</h3>
-                <p></p>
-            </div>
-            <div class="column">
-                <h2>Enter Savings</h2>
-                <form action="">
-                    <div class="field">
-                        <div class="control">
-                            <label for="incomeType" class="label">Savings Type</label>
-                            <input type="text" class="input" name="incomeType">
-                        </div>
-
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <label for="name" class="label">Name</label>
-                            <input type="text" class="input" name="name">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <label for="amount" class="label">Amount</label>
-                            <input type="number" class="input" name="amount">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <button type="submit" class="button is-success" name="submit">Submit</button>
-                        </div>
-
-                    </div>
-
-
-
-                </form>
-            </div>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Current Savings</h1>
+            <p class="subtitle">Welcome, you can view, edit or delete current savings below.</p>
+            <a href="addTrans.php" class="button is-success is-small">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span>Add Transaction</span>
+            </a>
+            <a href="allSavings.php" class="button is-primary is-small">
+                <span>See All Savings</span>
+            </a>
         </div>
-    </div>
-</section>
+        <div class="container pt-3">
+            <table class="table is-bordered">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Budget Name</td>
+                    <td>Transaction Type</td>
+                    <td>Transaction Name</td>
+                    <td>Amount</td>
+                    <td>Created</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($trans as $row): ?>
+                    <tr>
+                        <td>
+                            <?=$row['transactionID']?>
+                        </td>
+                        <td>
+                            <?=$row['budgetName']?>
+                        </td>
+                        <td>
+                            <?=$row['transactionType']?>
+                        </td>
+                        <td>
+                            <?=$row['transactionName']?>
+                        </td>
+                        <td class="<?= ($row['transactionType'] == 'Bills' || $row['transactionType'] == 'Expenses') ? 'has-text-danger' : 'has-text-black' ?>">
+
+                            <?=$row['transactionAmount']?>
+
+                        </td>
+                        <td>
+                            <?=$row['transactionDate']?>
+                        </td>
+                        <td>
+                            <a href="editTrans.php?id=<?=$row['transactionID']?>" class="button is-link is-small" title="Edit Savings">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                            <a href="deleteTrans.php?id=<?=$row['transactionID']?>" class="button is-danger is-small" title="Delete Savings">
+                                <span class="icon"><i class="fas fa-trash"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
 <?=template_footer();?>

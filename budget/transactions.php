@@ -11,7 +11,9 @@ INNER JOIN
     budgets b 
     on t.budgetID = b.budgetID
 WHERE b.userId = ?
-AND t.published = 1");
+AND t.published = 1
+ORDER BY 
+	transactionDate DESC");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();

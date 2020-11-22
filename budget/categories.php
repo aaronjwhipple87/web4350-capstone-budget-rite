@@ -36,8 +36,8 @@ $msg = "";
         </div>
         <div class="columns">
             <div class="column">
-                Debt
-                <a href="debt.php"><img src="img/hand-holding-usd-solid.svg" alt="Hand Holding USD"></a>
+                Expenses
+                <a href="expenses.php"><img src="img/hand-holding-usd-solid.svg" alt="Hand Holding USD"></a>
             </div>
             <div class="column">
                 Transactions

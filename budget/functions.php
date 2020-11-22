@@ -45,7 +45,7 @@ function template_nav() {
 
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="index.php">
+        <a class="navbar-item" href="dashboard.php">
           <img src="img/BR-icon.png" alt="">
         </a>
     
@@ -87,7 +87,7 @@ EOT;
         
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="index.php">
+        <a class="navbar-item" href="dashboard.php">
           <img src="img/BR-icon.png" alt="">
         </a>
     
