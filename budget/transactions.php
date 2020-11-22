@@ -5,12 +5,13 @@ $msg = "";
 
 
  //query that selects all the transactions for user
-$sql = $con->prepare("SELECT  t.transactionID, b.budgetName, t.transactionType, t.transactionName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate 
+$sql = $con->prepare("SELECT  t.published, t.transactionID, b.budgetName, t.transactionType, t.transactionName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate 
 FROM transactions t
 INNER JOIN
     budgets b 
     on t.budgetID = b.budgetID
-WHERE b.userId = ?");
+WHERE b.userId = ?
+AND t.published = 1");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();

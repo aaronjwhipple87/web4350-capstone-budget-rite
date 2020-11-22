@@ -18,15 +18,12 @@ $sql->close();
 $sql = $con->prepare("
 SELECT 
 	t.transactionName, t.transactionType, b.budgetName, t.transactionAmount, DATE_FORMAT(t.transactionDate, '%m-%d-%y') AS transactionDate
-FROM
-	budgets as b 
-LEFT JOIN
-	transactions as t on b.budgetID = b.budgetID
-WHERE	
-	b.userID = ?
+FROM transactions t
+INNER JOIN
+    budgets b 
+    on t.budgetID = b.budgetID
+WHERE b.userId = ?
     AND t.published = 1
-    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
-    AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
 ORDER BY 
 	transactionDate DESC
 LIMIT 10
@@ -38,7 +35,7 @@ $result = $sql->get_result();
 $transactions = $result->fetch_all(MYSQLI_ASSOC);
 $sql->close();
 
-//get spent amount
+//get income amount
 $sql = $con->prepare("
 SELECT
 	SUM(t.transactionAmount)
@@ -61,7 +58,7 @@ $sql->bind_result($monthlySpent);
 $sql->fetch();
 $sql->close();
 
-//get income amount
+//get spent amount
 $sql = $con->prepare("
 SELECT sum(t.transactionAmount)
 FROM
@@ -86,13 +83,12 @@ $sql->close();
 // get transaction type totals
 $sql = $con->prepare("
 SELECT t.transactionType, SUM(t.transactionAmount) AS transactionTypeSum
-FROM	
-	transactions as t
-LEFT JOIN
-	budgets as b on t.budgetID = b.budgetID
-WHERE
-	b.userID = ?
-    AND b.published = 1
+FROM transactions t
+INNER JOIN
+    budgets b 
+    on t.budgetID = b.budgetID
+WHERE b.userId = ?
+    AND t.published = 1
 GROUP BY
 	t.transactionType
 ");
@@ -106,13 +102,12 @@ $sql->close();
 // get budget totals
 $sql = $con->prepare("
 SELECT b.budgetName, SUM(t.transactionAmount) as budgetSum
-FROM
-	transactions as t 
-LEFT JOIN
-	budgets as b on t.budgetID = b.budgetID
-WHERE 
-	b.userID = ?
-    AND b.published = 1
+FROM transactions t
+INNER JOIN
+    budgets b 
+    on t.budgetID = b.budgetID
+WHERE b.userId = ?
+    AND t.published = 1
 GROUP BY
 	b.budgetName
 ");

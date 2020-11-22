@@ -122,7 +122,7 @@ EOT;
       </div>
     </nav>
     
-    EOT;
+EOT;
   }
 }
 
