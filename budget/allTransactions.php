@@ -64,7 +64,7 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                         <td>
                             <?=$row['transactionName']?>
                         </td>
-                        <td>
+                        <td class="<?= ($row['transactionType'] == 'Bills' || $row['transactionType'] == 'Expenses') ? 'has-text-danger' : 'has-text-black' ?>">
                             <?=$row['transactionAmount']?>
 
                         </td>

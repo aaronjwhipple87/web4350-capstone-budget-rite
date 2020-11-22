@@ -6,7 +6,8 @@ $msg = "";
 //query that selects all the budget names for user
 $sql = $con->prepare("SELECT budgetName, budgetID
 FROM budgets
-WHERE userId = ?");
+WHERE userId = ?
+AND published = 1");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();
