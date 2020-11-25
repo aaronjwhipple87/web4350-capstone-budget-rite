@@ -45,7 +45,9 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
                         <path class="circle" stroke-dasharray="<?=$percentage1;?>, 100" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <text x="18" y="20.35" class="percentage">30%</text>
+          <?php foreach($budgets2 as $row):?>
+                        <text x="18" y="20.35" class="percentage"><?=$row['plannedSum']?></text>
+          <?php endforeach;?>
                     </svg>
                 </div>
                 <?php foreach ($budgets as $row): ?>
@@ -80,7 +82,9 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
 
-                        <text x="18" y="20.35" class="percentage">30%</text>
+          <?php foreach($budgets2 as $row):?>
+                        <text x="18" y="20.35" class="percentage"><?=$row['appliedSum']?></text>
+          <?php endforeach;?>
                     </svg>
                 </div>
                 <?php foreach ($budgets as $row):?>
@@ -115,7 +119,9 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
                         <?php endforeach; ?>
-                        <text x="18" y="20.35" class="percentage">30%</text>
+                        <?php foreach($budgets2 as $row):?>
+                        <text x="18" y="20.35" class="percentage"><?=$row['resultSum']?></text>
+          <?php endforeach;?>
                     </svg>
                 </div>
                 <?php foreach($budgets as $row):?>
