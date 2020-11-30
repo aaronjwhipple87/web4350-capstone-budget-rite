@@ -14,16 +14,46 @@ $result = $sql->get_result();
 $budgets = $result->fetch_all(MYSQLI_ASSOC);
 
 if(isset($_POST["submit"])){
-        if($sql = $con->prepare('INSERT INTO transactions ( transactionType, transactionName, transactionAmount, transactionDate, budgetID ) VALUES (?,?,?, NOW(),?)')) {
-            $sql->bind_param('sssi', $_POST['transType'],$_POST['transName'], $_POST['transAmount'], $_POST['budgetID']);
+
+        if($_POST['transType'] == 'Bills' || $_POST['transType'] == 'Expenses'){
+            $transAmount = - + $_POST['transAmount'];
+        }else {
+            $transAmount = $_POST['transAmount'];
+        }
+
+
+        if($sql = $con->prepare("INSERT INTO transactions ( transactionType, transactionName, transactionAmount, transactionDate, budgetID ) VALUES (?,?,?, NOW(),?)")) {
+            $sql->bind_param('sssi', $_POST['transType'],$_POST['transName'], $transAmount, $_POST['budgetID']);
             $sql->execute();
-            $msg = 'Transaction created successfully!';
-            echo "<script type='text/javascript'>alert('$msg');</script>";
-            header( "Refresh:1; url=transactions.php");
+
+
 
         } else {
             $msg = "Could not prepare statement";
             echo "<script type='text/javascript'>alert('$msg');</script>";
+        }
+
+        if ($sql = $con->prepare('SELECT * FROM budgets WHERE BudgetID = ?')) {
+            $sql->bind_param('i', $_POST['budgetID']);
+            $sql->execute();
+            $sql->store_result();
+
+            if ($sql->num_rows > 0) {
+                $sql = $con->prepare('UPDATE budgets
+                SET appliedAmount = appliedAmount + ?
+                WHERE BudgetID = ?');
+                $sql->bind_param('si', $transAmount,$_POST['budgetID']);
+                $sql->execute();
+
+                $msg = 'Transaction created successfully!';
+                echo "<script type='text/javascript'>alert('$msg');</script>";
+//                header( "Refresh:1; url=transactions.php");
+
+            } else {
+                $msg = "Could not prepare statement";
+                echo "<script type='text/javascript'>alert('$msg');</script>";
+            }
+
         }
 
         $sql->close();
