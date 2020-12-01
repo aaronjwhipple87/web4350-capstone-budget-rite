@@ -22,6 +22,14 @@ if(isset($_POST["delete"])){
             $msg = "Could not prepare statement";
             echo "<script type='text/javascript'>alert('$msg');</script>";
         }
+
+
+
+
+
+
+
+
     }else {
 
         $msg= 'No record with that ID!';

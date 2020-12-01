@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3e2b581-2917-4420-a57a-f8b987db6ccb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/budget/singleBudget.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/budget/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/addTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/addTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/allbudgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/allbudgets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/budgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/budgets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/deleteTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/deleteTrans.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/editTrans.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/editTrans.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +83,7 @@
       <workItem from="1605196541238" duration="6000" />
       <workItem from="1606744583822" duration="2455000" />
       <workItem from="1606747253495" duration="20000" />
-      <workItem from="1606749869840" duration="9625000" />
+      <workItem from="1606749869840" duration="26584000" />
     </task>
     <servers />
   </component>
@@ -111,17 +115,21 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1480" y="230" key="MergeDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603722220616" />
-    <state x="-1130" y="456" key="NewPhpFileDialog" timestamp="1604948872934">
+    <state x="-1130" y="456" key="NewPhpFileDialog" timestamp="1606766350065">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1130" y="456" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1604948872934" />
+    <state x="-1130" y="456" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606766350065" />
     <state x="151" y="0" width="996" height="680" key="SettingsEditor" timestamp="1603737644564">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="151" y="0" width="996" height="680" key="SettingsEditor/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603737644564" />
-    <state x="-1304" y="240" key="run.anything.popup" timestamp="1604929075447">
+    <state x="-1304" y="240" key="run.anything.popup" timestamp="1606833771510">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1304" y="240" key="run.anything.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1604929075447" />
+    <state x="-1304" y="240" key="run.anything.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606833771510" />
+    <state x="-1028" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1606768871968">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1028" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606768871968" />
   </component>
 </project>

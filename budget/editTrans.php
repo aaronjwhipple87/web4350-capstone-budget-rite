@@ -33,6 +33,15 @@ if(isset($_GET['id'])) {
 
 if(isset($_POST["edit"])) {
 
+    if(($_POST['transType'] == 'Bills' || $_POST['transType'] == 'Expenses') && $_POST['transAmount'] > 0) {
+        $transAmount = $_POST['transAmount'] * -1;
+    }else if(($_POST['transType'] == 'Savings' || $_POST['transType'] == 'Income') && $_POST['transAmount'] < 0)
+        $transAmount = $_POST['transAmount'] * -1;
+    else{
+        $transAmount = $_POST['transAmount'];
+    }
+
+
     // get info from db
     if ($sql = $con->prepare('SELECT * FROM transactions WHERE transactionID = ?')) {
         $sql->bind_param('i', $_GET['id']);
@@ -41,16 +50,42 @@ if(isset($_POST["edit"])) {
 
         if ($stmt = $con->prepare('UPDATE transactions SET transactionType = ?, transactionName = ?, transactionAmount = ?, budgetID = ? WHERE transactionID = ?')) {
 
-            $stmt->bind_param('sssii', $_POST['transType'], $_POST['transName'], $_POST['transAmount'], $_POST['budgetID'], $_GET['id']);
+            $stmt->bind_param('sssii', $_POST['transType'], $_POST['transName'], $transAmount, $_POST['budgetID'], $_GET['id']);
             $stmt->execute();
 
-            $msg = 'You have successfully changed your Transaction!';
+            $msg = 'You have successfully updated your Transaction!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
             header("Refresh:.5; url=categories.php");
+
         } else {
             $msg = "Could not prepare ";
             echo "<script type='text/javascript'>alert('$msg');</script>";
         }
+
+//        if ($sql = $con->prepare('SELECT appliedAmount FROM budgets WHERE BudgetID = ?')) {
+//            $sql->bind_param('i', $_POST['budgetID']);
+//            $sql->execute();
+//            $sql->store_result();
+//
+//            if ($sql->num_rows > 0) {
+//                $sql = $con->prepare('UPDATE budgets
+//                SET appliedAmount = appliedAmount + ?
+//                WHERE BudgetID = ?');
+//                $sql->bind_param('si', $transAmount,$_POST['budgetID']);
+//                $sql->execute();
+//
+//
+//
+//            } else {
+//                $msg = "Could not prepare statement";
+//                echo "<script type='text/javascript'>alert('$msg');</script>";
+//            }
+//
+//        }
+
+
+
+
 
         $sql->close();
 

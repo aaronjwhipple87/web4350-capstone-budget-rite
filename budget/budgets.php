@@ -4,11 +4,31 @@ require 'session.php';
 $msg = "";
 
 
+
+// get budget totals
+$sql = $con->prepare("
+SELECT b.budgetID, SUM(t.transactionAmount) as budgetSum 
+FROM transactions t
+INNER JOIN
+    budgets b 
+    on t.budgetID = b.budgetID
+WHERE b.userId = ?
+    AND t.published = 1
+GROUP BY b.budgetID
+");
+
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$result = $sql->get_result();
+$budgetTotal = $result->fetch_all(MYSQLI_ASSOC);
+$sql->close();
+
+
 //query that selects all the transactions for user
 $sql = $con->prepare("SELECT budgetID, budgetName, plannedAmount, appliedAmount, DATE_FORMAT(dueDate, '%m-%d-%y') AS dueDate, DATE_FORMAT(created, '%m-%d-%y') AS created, notes
 FROM budgets
 WHERE userId = ? AND published = 1
-ORDER BY 
+ORDER BY
 	dueDate DESC");
 $sql->bind_param("i", $_SESSION['id']);
 $sql->execute();
@@ -22,7 +42,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
 
 <?=template_nav();?>
 
-    <section class="section">
+    <section class="section is-flex is-flex-direction-column is-align-content-center ">
         <div class="container">
             <h1 class="title">Current Budgets</h1>
             <p class="subtitle">Welcome, you can view, edit or delete budgets below.</p>
@@ -41,7 +61,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                     <td>#</td>
                     <td>Budget Name</td>
                     <td>Planned Amount</td>
-                    <td>Applied Amount</td>
+                    <td>Sum Transaction Amount</td>
                     <td>Due Date</td>
                     <td>Notes</td>
                     <td>Created</td>
@@ -55,14 +75,20 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                             <?=$row['budgetID']?>
                         </td>
                         <td>
-                            <?=$row['budgetName']?>
+                            <a href="singleBudget.php?id=<?=$row['budgetID']?>"><?=$row['budgetName']?></a>
                         </td>
                         <td>
                             <?=$row['plannedAmount']?>
                         </td>
+
                         <td>
-                            <?=$row['appliedAmount']?>
+                        <?php foreach ($budgetTotal as $total): ?>
+
+                            <?=($total['budgetID'] == $row['budgetID'] ? $total['budgetSum'] :  ' ')?>
+
+                        <?php endforeach;?>
                         </td>
+
                         <td>
                             <?=$row['dueDate']?>
                         </td>

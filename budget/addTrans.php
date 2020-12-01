@@ -15,48 +15,49 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
 
 if(isset($_POST["submit"])){
 
-        if($_POST['transType'] == 'Bills' || $_POST['transType'] == 'Expenses'){
-            $transAmount = - + $_POST['transAmount'];
-        }else {
-            $transAmount = $_POST['transAmount'];
-        }
+    if(($_POST['transType'] == 'Bills' || $_POST['transType'] == 'Expenses') && $_POST['transAmount'] > 0) {
+        $transAmount = $_POST['transAmount'] * -1;
+    }else if(($_POST['transType'] == 'Savings' || $_POST['transType'] == 'Income') && $_POST['transAmount'] < 0)
+        $transAmount = $_POST['transAmount'] * -1;
+    else{
+        $transAmount = $_POST['transAmount'];
+    }
 
+    if($sql = $con->prepare("INSERT INTO transactions ( transactionType, transactionName, transactionAmount, transactionDate, budgetID ) VALUES (?,?,?, NOW(),?)")) {
+        $sql->bind_param('sssi', $_POST['transType'],$_POST['transName'], $transAmount, $_POST['budgetID']);
+        $sql->execute();
 
-        if($sql = $con->prepare("INSERT INTO transactions ( transactionType, transactionName, transactionAmount, transactionDate, budgetID ) VALUES (?,?,?, NOW(),?)")) {
-            $sql->bind_param('sssi', $_POST['transType'],$_POST['transName'], $transAmount, $_POST['budgetID']);
-            $sql->execute();
+        $msg = 'Transaction created successfully!';
+        echo "<script type='text/javascript'>alert('$msg');</script>";
+        header( "Refresh:1; url=categories.php");
 
+    } else {
+        $msg = "Could not prepare statement";
+        echo "<script type='text/javascript'>alert('$msg');</script>";
+    }
 
+//        if ($sql = $con->prepare('SELECT * FROM budgets WHERE BudgetID = ?')) {
+//            $sql->bind_param('i', $_POST['budgetID']);
+//            $sql->execute();
+//            $sql->store_result();
+//
+//            if ($sql->num_rows > 0) {
+//                $sql = $con->prepare('UPDATE budgets
+//                SET appliedAmount = appliedAmount + ?
+//                WHERE BudgetID = ?');
+//                $sql->bind_param('si', $transAmount,$_POST['budgetID']);
+//                $sql->execute();
+//
+//
+//
+//            } else {
+//                $msg = "Could not prepare statement";
+//                echo "<script type='text/javascript'>alert('$msg');</script>";
+//            }
+//
+//        }
 
-        } else {
-            $msg = "Could not prepare statement";
-            echo "<script type='text/javascript'>alert('$msg');</script>";
-        }
-
-        if ($sql = $con->prepare('SELECT * FROM budgets WHERE BudgetID = ?')) {
-            $sql->bind_param('i', $_POST['budgetID']);
-            $sql->execute();
-            $sql->store_result();
-
-            if ($sql->num_rows > 0) {
-                $sql = $con->prepare('UPDATE budgets
-                SET appliedAmount = appliedAmount + ?
-                WHERE BudgetID = ?');
-                $sql->bind_param('si', $transAmount,$_POST['budgetID']);
-                $sql->execute();
-
-                $msg = 'Transaction created successfully!';
-                echo "<script type='text/javascript'>alert('$msg');</script>";
-//                header( "Refresh:1; url=transactions.php");
-
-            } else {
-                $msg = "Could not prepare statement";
-                echo "<script type='text/javascript'>alert('$msg');</script>";
-            }
-
-        }
-
-        $sql->close();
+    $sql->close();
 }
 
 
@@ -95,7 +96,7 @@ if(isset($_POST["submit"])){
                             <div class="select">
                                 <option value="">Select</option>
                                 <?php foreach ($budgets as $row): ?>
-                                <option value="<?=$row['budgetID']?>"><?=$row['budgetName']?> </option>
+                                    <option value="<?=$row['budgetID']?>"><?=$row['budgetName']?> </option>
                                 <?php endforeach;?>
                             </div>
                         </select>

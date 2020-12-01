@@ -42,7 +42,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                     <td>#</td>
                     <td>Budget Name</td>
                     <td>Planned Amount</td>
-                    <td>Applied Amount</td>
+
                     <td>Due Date</td>
                     <td>Notes</td>
                     <td>Created</td>
@@ -62,9 +62,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                         <td>
                             <?=$row['plannedAmount']?>
                         </td>
-                        <td>
-                            <?=$row['appliedAmount']?>
-                        </td>
+
                         <td>
                             <?=$row['dueDate']?>
                         </td>
