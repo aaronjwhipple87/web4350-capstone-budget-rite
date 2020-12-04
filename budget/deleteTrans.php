@@ -16,7 +16,7 @@ if(isset($_POST["delete"])){
 
             $msg = 'Transaction deleted successfully!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header( "Refresh:1; url=categories.php");
+            header( "Refresh:1; url=transactions.php");
 
         }else {
             $msg = "Could not prepare statement";

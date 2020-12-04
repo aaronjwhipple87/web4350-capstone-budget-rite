@@ -45,7 +45,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
 <?=template_menu();?>
 
 <div class="column">
-    <section class="section is-flex is-flex-direction-column is-align-content-center ">
+    <section class="section">
         <div class="container">
             <h1 class="title">Current Budgets</h1>
             <p class="subtitle">Welcome, you can view, edit or delete budgets below.</p>

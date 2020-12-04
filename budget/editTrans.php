@@ -55,7 +55,7 @@ if(isset($_POST["edit"])) {
 
             $msg = 'You have successfully updated your Transaction!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header("Refresh:.5; url=categories.php");
+            header("Refresh:.5; url=transactions.php");
 
         } else {
             $msg = "Could not prepare ";
