@@ -27,7 +27,9 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
 <?=template_header('Reports');?>
 
 <?=template_nav();?>
+
 <?=template_menu();?>
+
 <!-- document main content goes here -->
 <div class="column">
 <section class="section">

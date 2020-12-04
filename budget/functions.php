@@ -1,3 +1,38 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@aaronjwhipple87
+We are having a problem billing your account. Please enter a new payment method or check with your payment provider for details on why the transaction failed. You can downgrade to GitHub Free in your Billing settings.
+You can always contact support with any questions.
+aaronjwhipple87
+/
+web4350-capstone-budget-rite
+1
+0
+0
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+web4350-capstone-budget-rite/budget/functions.php /
+@mattaptivada
+mattaptivada added menu to missing pages
+Latest commit 0f2f35c 3 hours ago
+History
+3 contributors
+@aaronjwhipple87@mattaptivada@cbenard9
+208 lines (183 sloc)  6.14 KB
+
 <?php
 
 //db connection
@@ -20,7 +55,6 @@ function template_header($title) {
     echo <<<EOT
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,18 +65,15 @@ function template_header($title) {
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="js/main.js"></script>
 </head>
-
 <body>
-
 EOT;
 }
 
 // Template navbar
 function template_nav() {
-  //not logged in
-  if (!isset($_SESSION['loggedin'])) {
-    echo <<<EOT
-
+    //not logged in
+    if (!isset($_SESSION['loggedin'])) {
+        echo <<<EOT
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="dashboard.php">
@@ -79,11 +110,10 @@ function template_nav() {
         
       </div>
     </nav>
-
 EOT;
-  } else {
-    //logged in
-    echo <<<EOT
+    } else {
+        //logged in
+        echo <<<EOT
         
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -104,9 +134,9 @@ EOT;
          <a class="navbar-item" href="dashboard.php">
             Home
           </a>
-<!--          <a class="navbar-item" href="categories.php">-->
-<!--            Categories-->
-<!--          </a>-->
+          <a class="navbar-item" href="categories.php">
+            Categories
+          </a>
         </div>
         
          <div class="navbar-end">
@@ -123,7 +153,7 @@ EOT;
     </nav>
     
 EOT;
-  }
+    }
 }
 
 // Template footer
@@ -168,7 +198,7 @@ EOT;
 }
 
 function template_menu() {
-  echo <<<EOT
+    echo <<<EOT
   <div class="columns is-fullheight">
     <div class="column is-2 is-sidebar-menu is-hidden-mobile">
       <aside class="menu">
@@ -179,7 +209,7 @@ function template_menu() {
         <p class="menu-label">Transactions</p>
         <ul class="menu-list">
           <li><a href="addTrans.php">Add Transaction</a></li>
-          <li><a href="transactions.php">Transactions</a>
+          <li><a href="transactions.php">Transaction</a>
             <ul>
               <li><a href="income.php">Income</a></li>
               <li><a href="savings.php">Savings</a></li>
@@ -204,5 +234,6 @@ function template_menu() {
         </aside>
         <img src="img/BR_small-icon.png" id="leftLogo">
     </div>
-  EOT;
+EOT;
 }
+

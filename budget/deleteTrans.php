@@ -47,9 +47,9 @@ if(isset($_POST["delete"])){
 
 <?=template_nav();?>
 
+<?=template_menu();?>
 
-
-    <!---document main content goes here -->
+<div class="column">
     <section class="section">
         <div class="container">
             <h1 class="title">Delete Transaction</h1>
@@ -62,7 +62,5 @@ if(isset($_POST["delete"])){
             </form>
         </div>
     </section>
-
-
-
-<?=template_footer();?>
+</div>
+</div>

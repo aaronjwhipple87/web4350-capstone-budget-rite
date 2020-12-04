@@ -26,7 +26,9 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 <?=template_header('Savings');?>
 
 <?=template_nav();?>
+
 <?=template_menu();?>
+
 <div class="column">
     <section class="section">
         <div class="container">
