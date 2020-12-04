@@ -93,3 +93,84 @@ VALUES ('spotify', 5.99, 2, 1),
     ('hulu', 12.99, 2, 1),
     ('netflix', 10, 2, 1),
     ('spotify', 5.99, 2, 1)
+
+
+-- graph query
+SELECT
+	DATE_FORMAT(t.transactionDate, "%b, %D") as transactionDate, 
+   	SUM(t.transactionAmount) as expenses
+	FROM
+	transactions as t
+	LEFT JOIN
+		budgets as b on t.budgetID = b.budgetID
+	WHERE
+		b.userID = 1
+    	AND t.published = 1
+    	AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+    	AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
+    	AND t.transactionType != 'Income'
+    	AND t.transactionType != 'Savings'
+	GROUP BY
+		DATE_FORMAT(t.transactionDate, "%b, %D")
+
+SELECT
+	DATE_FORMAT(t.transactionDate, "%b, %D") as transactionDate, 
+   	SUM(t.transactionAmount) as income
+	FROM
+	transactions as t
+	LEFT JOIN
+		budgets as b on t.budgetID = b.budgetID
+	WHERE
+		b.userID = 1
+    	AND t.published = 1
+    	AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+    	AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
+    	AND t.transactionType = 'Income'
+    	OR t.transactionType = 'Savings'
+	GROUP BY
+		DATE_FORMAT(t.transactionDate, "%b, %D")
+
+--combined queries
+SELECT
+    income.transactionDate,
+    income.income,
+    expenses.expenses
+FROM
+    (
+        SELECT
+            DATE_FORMAT(t.transactionDate, "%b, %D") as transactionDate, 
+            SUM(t.transactionAmount) as income
+	    FROM
+	        transactions as t
+	    LEFT JOIN
+		    budgets as b on t.budgetID = b.budgetID
+	    WHERE
+            b.userID = 1
+            AND t.published = 1
+            AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+            AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
+            AND t.transactionType = 'Income'
+            OR t.transactionType = 'Savings'
+        GROUP BY
+            DATE_FORMAT(t.transactionDate, "%b, %D")
+    ) as income
+INNER JOIN
+    (
+        SELECT
+            DATE_FORMAT(t.transactionDate, "%b, %D") as transactionDate, 
+            SUM(t.transactionAmount) as expenses
+	    FROM
+	        transactions as t
+        LEFT JOIN
+            budgets as b on t.budgetID = b.budgetID
+        WHERE
+            b.userID = 1
+            AND t.published = 1
+            AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+            AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
+            AND t.transactionType != 'Income'
+            AND t.transactionType != 'Savings'
+        GROUP BY
+            DATE_FORMAT(t.transactionDate, "%b, %D")
+    ) as expenses
+ON income.transactionDate = expenses.transactionDate

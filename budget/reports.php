@@ -27,8 +27,9 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
 <?=template_header('Reports');?>
 
 <?=template_nav();?>
-
+<?=template_menu();?>
 <!-- document main content goes here -->
+<div class="column">
 <section class="section">
     <div class="container">
         <h1 class="title">Reports</h1>
@@ -138,5 +139,5 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 </section>
-
-<?=template_footer();?>
+</div>
+</div>

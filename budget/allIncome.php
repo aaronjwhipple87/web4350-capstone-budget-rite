@@ -29,6 +29,9 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 
 <?=template_nav();?>
 
+<?=template_menu();?>
+
+<div class="column">
     <section class="section">
         <div class="container">
             <h1 class="title">All Income</h1>
@@ -94,5 +97,5 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
             </table>
         </div>
     </section>
-
-<?=template_footer();?>
+</div>
+</div>

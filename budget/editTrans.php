@@ -106,7 +106,9 @@ if(isset($_POST["edit"])) {
 
 <?=template_nav();?>
 
+<?=template_menu();?>
 
+<div class="column">
     <section class="section">
         <div class="container">
             <h1 class="title">Edit Transaction</h1>
@@ -162,7 +164,5 @@ if(isset($_POST["edit"])) {
             </form>
         </div>
     </section>
-
-
-
-<?=template_footer();?>
+</div>
+</div>

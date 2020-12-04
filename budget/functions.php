@@ -27,7 +27,7 @@ function template_header($title) {
     <title>$title</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/graph.css">
-    <link rel="stylesheet" href="scss/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="js/main.js"></script>
 </head>
@@ -165,4 +165,44 @@ function template_footer() {
     </body>
 </html>
 EOT;
+}
+
+function template_menu() {
+  echo <<<EOT
+  <div class="columns is-fullheight">
+    <div class="column is-2 is-sidebar-menu is-hidden-mobile">
+      <aside class="menu">
+        <p class="menu-label">General</p>
+        <ul class="menu-list">
+          <li><a href="dashboard.php">Home</a></li>
+        </ul>
+        <p class="menu-label">Transactions</p>
+        <ul class="menu-list">
+          <li><a href="addTrans.php">Add Transaction</a></li>
+          <li><a href="transactions.php">All Transaction</a>
+            <ul>
+              <li><a href="income.php">Income</a></li>
+              <li><a href="savings.php">Savings</a></li>
+              <li><a href="expenses.php">Expenses</a></li>
+              <li><a href="bills.php">Bills</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="menu-label">Budgets</p>
+        <ul class="menu-list">
+          <li><a href="addBudget.php">Create Budget</a></li>
+          <li><a href="budgets.php">All Budgets</a></li>
+        </ul>
+        <p class="menu-label">Reporting</p>
+        <ul class="menu-list">
+          <li><a href="reports.php">Reports</a></li>
+        </ul>
+        <p class="menu-label">Account Management</p>
+        <ul class="menu-list">
+          <li><a href="settings.php">Settings</a></li>
+        </ul>
+        </aside>
+        <img src="img/BR_small-icon.png" id="leftLogo">
+    </div>
+  EOT;
 }

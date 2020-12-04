@@ -102,6 +102,7 @@ if(isset($_POST["changePassword"])){
 
 <?=template_header('Settings');?>
 <?=template_nav();?>
+<?=template_menu();?>
 
 <script>
     function setPasswordConfirmValidity(str) {
@@ -118,7 +119,9 @@ if(isset($_POST["changePassword"])){
     }
 </script>
 
-<div class="container mt-3">
+<div class="column">
+<div class="section">
+<div class="container">
     <h2 class="title">Settings</h2>
     <div class="columns">
         <div class="column">
@@ -203,5 +206,7 @@ if(isset($_POST["changePassword"])){
         </div>
     </div>
 </div>
-
+</div>
+</div>
+</div>
 <?=template_footer();?>

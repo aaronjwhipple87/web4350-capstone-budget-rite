@@ -42,6 +42,9 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
 
 <?=template_nav();?>
 
+<?=template_menu();?>
+
+<div class="column">
     <section class="section is-flex is-flex-direction-column is-align-content-center ">
         <div class="container">
             <h1 class="title">Current Budgets</h1>
@@ -55,7 +58,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
             </a>
         </div>
         <div class="container pt-3">
-            <table class="table is-bordered">
+            <table class="table is-bordered is-fullwidth">
                 <thead>
                 <tr>
                     <td>#</td>
@@ -112,5 +115,5 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
             </table>
         </div>
     </section>
-
-<?=template_footer();?>
+</div>
+</div>

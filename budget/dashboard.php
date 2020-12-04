@@ -6,7 +6,6 @@ $msg = "";
 // get user info from db
 $sql = $con->prepare('SELECT firstName, lastName FROM users WHERE userId = ?');
 
-// In this case we can use the account ID to get the account info.
 $sql->bind_param('i', $_SESSION['id']);
 $sql->execute();
 $sql->bind_result($firstName, $lastName);
@@ -33,51 +32,6 @@ $sql->bind_param('i', $_SESSION['id']);
 $sql->execute();
 $result = $sql->get_result();
 $transactions = $result->fetch_all(MYSQLI_ASSOC);
-$sql->close();
-
-//get income amount
-$sql = $con->prepare("
-SELECT
-	SUM(t.transactionAmount)
-FROM
-	transactions as t 
-LEFT JOIN
-	budgets as b ON t.budgetID = b.budgetID
-WHERE
-	b.userID = ?
-    AND t.published = 1
-    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
-    AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-    AND t.transactionType != 'Income'
-    AND t.transactionType != 'Savings'
-");
-
-$sql->bind_param('i', $_SESSION['id']);
-$sql->execute();
-$sql->bind_result($monthlySpent);
-$sql->fetch();
-$sql->close();
-
-//get spent amount
-$sql = $con->prepare("
-SELECT sum(t.transactionAmount)
-FROM
-    transactions as t
-LEFT JOIN
-    budgets as b on t.budgetID = b.budgetID
-WHERE 
-    b.userID = ?
-    AND t.published = 1
-    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
-    AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-    AND t.transactionType != 'Bills'
-    AND t.transactionType != 'Expenses'
-");
-
-$sql->bind_param('i', $_SESSION['id']);
-$sql->execute();
-$sql->bind_result($monthlyIncome);
-$sql->fetch();
 $sql->close();
 
 // get transaction type totals
@@ -118,6 +72,59 @@ $result = $sql->get_result();
 $budgetTotals = $result->fetch_all(MYSQLI_ASSOC);
 $sql->close();
 
+// google chart query
+$sql = $con->prepare("
+SELECT
+    expenses.transactionDate as transactionDate,
+    IFNULL(income.income, 0) as income,
+    IFNULL(expenses.expenses, 0) as expenses
+FROM
+(
+        SELECT
+            DATE_FORMAT(t.transactionDate, '%b, %D') as transactionDate, 
+            SUM(t.transactionAmount) as expenses
+	    FROM
+	        transactions as t
+        LEFT JOIN
+            budgets as b on t.budgetID = b.budgetID
+        WHERE
+            b.userID = ?
+            AND t.published = 1
+            AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+            AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
+            AND t.transactionType != 'Income'
+            AND t.transactionType != 'Savings'
+        GROUP BY
+            DATE_FORMAT(t.transactionDate, '%b, %D')
+    ) as expenses
+LEFT JOIN
+    (
+        SELECT
+            DATE_FORMAT(t.transactionDate, '%b, %D') as transactionDate, 
+            SUM(t.transactionAmount) as income
+	    FROM
+	        transactions as t
+	    LEFT JOIN
+		    budgets as b on t.budgetID = b.budgetID
+	    WHERE
+            b.userID = ?
+            AND t.published = 1
+            AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+            AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
+            AND t.transactionType = 'Income'
+            OR t.transactionType = 'Savings'
+        GROUP BY
+            DATE_FORMAT(t.transactionDate, '%b, %D')
+    ) as income
+    
+ON expenses.transactionDate = income.transactionDate
+");
+
+$sql->bind_param('ss', $_SESSION['id'], $_SESSION['id']);
+$sql->execute();
+$result = $sql->get_result();
+$chartTransactions = $result->fetch_all(MYSQLI_ASSOC);
+$sql->close();
 ?>
 
 
@@ -126,6 +133,9 @@ $sql->close();
 
 <?=template_nav();?>
 
+<?=template_menu();?>
+
+<div class="column">
 <section class="section">
     <div class="container">
         <div class="columns">
@@ -140,20 +150,46 @@ $sql->close();
         </div>
     </div>
 </section>
-<section class="section">
-    <div class="container">
-        <div class="card has-text-centered is-vcentered" id="dashboardMoney">
-            <p class="title"> <span class="has-text-danger has-text-weight-bold">$<?=$monthlySpent == 0 ? 0 : $monthlySpent?></span> spent out of <span class="has-text-primary has-text-weight-bold">$<?=$monthlyIncome == 0 ? 0 : $monthlyIncome?></span></p>
-            <?php
-                if ($monthlyIncome == 0) {
-                    $percentage = 0;
-                } else {
-                    $percentage = $monthlySpent / $monthlyIncome * 100;
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Date', 'Income', 'Expenses'],
+                <?php foreach ($chartTransactions as $row): ?>
+                    ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
+                <?php endforeach;?>
+            ]);
+
+            var options = {
+                curveType: 'function',
+                legend: { position: 'bottom' },
+                animation: {
+                    startup: true,
+                    duration: 500,
+                    easing: 'in',
+                },
+                vAxis: {
+                    format: 'currency',
+                },
+                series: {
+                    0: { color: '#298046'},
+                    1: { color: '#f14668'},
                 }
-            ?>
-            <progress class="progress <?= $percentage >= 100 ? 'is-danger' : 'is-primary' ?>" value="<?= $percentage; ?>" max="100"><?= $percentage; ?>%</progress>
-        </div>
+            };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+        }
+    </script>
+<div class="section">
+    <div class="container">
+        <p class="title">Monthly Income & Expenses: </p>
+        <div class="card" id="curve_chart"></div>
     </div>
+</div>
 </section>
 <section class="section">
     <div class="container">
@@ -225,8 +261,6 @@ $sql->close();
             </tbody>
         </table>
     </div>
-    <?=$_SESSION['id']?>
 </section>
-
-
-<?=template_footer();?>
+</div>
+</div>
