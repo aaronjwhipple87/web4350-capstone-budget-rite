@@ -40,9 +40,10 @@ if(isset($_POST["publish"])){
 
 <?=template_nav();?>
 
-
+<?=template_menu();?>
 
     <!---document main content goes here -->
+<div class="column">
     <section class="section">
         <div class="container">
             <h1 class="title">Publish Transaction to Current List</h1>
@@ -55,7 +56,5 @@ if(isset($_POST["publish"])){
             </form>
         </div>
     </section>
-
-
-
-<?=template_footer();?>
+</div>
+</div>

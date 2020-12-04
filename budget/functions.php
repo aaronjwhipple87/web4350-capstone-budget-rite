@@ -179,7 +179,7 @@ function template_menu() {
         <p class="menu-label">Transactions</p>
         <ul class="menu-list">
           <li><a href="addTrans.php">Add Transaction</a></li>
-          <li><a href="transactions.php">All Transaction</a>
+          <li><a href="transactions.php">Transaction</a>
             <ul>
               <li><a href="income.php">Income</a></li>
               <li><a href="savings.php">Savings</a></li>
@@ -191,7 +191,7 @@ function template_menu() {
         <p class="menu-label">Budgets</p>
         <ul class="menu-list">
           <li><a href="addBudget.php">Create Budget</a></li>
-          <li><a href="budgets.php">All Budgets</a></li>
+          <li><a href="budgets.php">Budgets</a></li>
         </ul>
         <p class="menu-label">Reporting</p>
         <ul class="menu-list">
