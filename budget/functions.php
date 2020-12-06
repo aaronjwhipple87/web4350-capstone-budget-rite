@@ -1,37 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
-
-@aaronjwhipple87
-We are having a problem billing your account. Please enter a new payment method or check with your payment provider for details on why the transaction failed. You can downgrade to GitHub Free in your Billing settings.
-You can always contact support with any questions.
-aaronjwhipple87
-/
-web4350-capstone-budget-rite
-1
-0
-0
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-web4350-capstone-budget-rite/budget/functions.php /
-@mattaptivada
-mattaptivada added menu to missing pages
-Latest commit 0f2f35c 3 hours ago
-History
-3 contributors
-@aaronjwhipple87@mattaptivada@cbenard9
-208 lines (183 sloc)  6.14 KB
 
 <?php
 
