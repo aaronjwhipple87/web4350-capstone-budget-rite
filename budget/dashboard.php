@@ -135,6 +135,27 @@ $sql->close();
 
 <?=template_menu();?>
 
+<div id="modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong>Welcome, New User!</strong>
+                            <br>
+                            To begin you first need to Create a Budget.
+                        </p>
+                    </div>
+                    <button class="button is-danger is-small" id="closebtn">Close Modal</button>
+                </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+
 <div class="column">
 <section class="section">
     <div class="container">
@@ -277,3 +298,21 @@ $sql->close();
         $(this).parent().removeClass("is-active");
     });
 </script>
+
+<?php
+
+$modal = <<<EOT
+  <script>
+  $(document).ready(function(){
+    $(".modal").addClass("is-active");
+  });
+  $(".modal-close").click(function() {
+    $(".modal").removeClass("is-active"); 
+  });
+  $("#closebtn").click(function() {
+    $(".modal").removeClass("is-active"); 
+  });
+  </script>
+EOT;
+echo $modal;
+?>
