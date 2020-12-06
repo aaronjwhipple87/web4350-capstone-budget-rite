@@ -30,6 +30,7 @@ function template_header($title) {
     <link rel="stylesheet" href="css/main.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="js/main.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 EOT;

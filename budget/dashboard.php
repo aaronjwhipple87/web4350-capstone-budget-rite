@@ -150,40 +150,6 @@ $sql->close();
         </div>
     </div>
 </section>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Date', 'Income', 'Expenses'],
-                <?php foreach ($chartTransactions as $row): ?>
-                    ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
-                <?php endforeach;?>
-            ]);
-
-            var options = {
-                curveType: 'function',
-                legend: { position: 'bottom' },
-                animation: {
-                    startup: true,
-                    duration: 500,
-                    easing: 'in',
-                },
-                vAxis: {
-                    format: 'currency',
-                },
-                series: {
-                    0: { color: '#298046'},
-                    1: { color: '#f14668'},
-                }
-            };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-        }
-    </script>
 <div class="section">
     <div class="container">
         <p class="title">Monthly Income & Expenses: </p>
@@ -262,4 +228,52 @@ $sql->close();
         </table>
     </div>
 </section>
+
+    <button></button>
 </div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Date', 'Income', 'Expenses'],
+            <?php foreach ($chartTransactions as $row): ?>
+            ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
+            <?php endforeach;?>
+        ]);
+
+        var options = {
+            curveType: 'function',
+            legend: { position: 'bottom' },
+            animation: {
+                startup: true,
+                duration: 500,
+                easing: 'in',
+            },
+            vAxis: {
+                format: 'currency',
+            },
+            series: {
+                0: { color: '#298046'},
+                1: { color: '#f14668'},
+            }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+
+    $(".modal-button").click(function() {
+        var target = $(this).data("target");
+        $("html").addClass("is-clipped");
+        $(target).addClass("is-active");
+    });
+
+    $(".modal-close").click(function() {
+        $("html").removeClass("is-clipped");
+        $(this).parent().removeClass("is-active");
+    });
+</script>
