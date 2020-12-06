@@ -234,6 +234,7 @@ function template_menu() {
         </aside>
         <img src="img/BR_small-icon.png" id="leftLogo">
     </div>
+</div>
 EOT;
 }
 

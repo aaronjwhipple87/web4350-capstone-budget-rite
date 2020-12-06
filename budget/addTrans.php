@@ -127,4 +127,3 @@ if(isset($_POST["submit"])){
         </div>
     </section>
 </div>
-</div>

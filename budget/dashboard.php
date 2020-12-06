@@ -263,4 +263,3 @@ $sql->close();
     </div>
 </section>
 </div>
-</div>

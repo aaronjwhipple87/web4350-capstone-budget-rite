@@ -63,4 +63,3 @@ if(isset($_POST["delete"])){
         </div>
     </section>
 </div>
-</div>

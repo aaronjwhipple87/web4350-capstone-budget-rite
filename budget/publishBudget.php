@@ -62,5 +62,4 @@ if(isset($_POST["publish"])){
         </div>
     </section>
 </div>
-</div>
 

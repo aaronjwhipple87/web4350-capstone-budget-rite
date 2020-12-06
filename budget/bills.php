@@ -93,4 +93,3 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
         </div>
     </section>
 </div>
-</div>
