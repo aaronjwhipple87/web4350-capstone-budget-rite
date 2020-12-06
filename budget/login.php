@@ -46,14 +46,14 @@ if(isset($_POST["login"])){
 
                 $msg= 'Incorrect password!';
                 echo "<script type='text/javascript'>alert('$msg');</script>";
-                header('Location: login.php?message=Incorrect Password');
+//                header('Location: login.php?message=Incorrect Password');
             }
 
         } else {
 
             $msg= 'Incorrect email!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header('Location: login.php?message=Incorrect Email');
+//            header('Location: login.php?message=Incorrect Email');
 
         }
 
