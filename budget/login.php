@@ -3,13 +3,14 @@ include 'functions.php';
 $msg = "";
 session_start();
 
-if(isset($_POST["login"])){
+
+if (isset($_POST["login"])) {
 
     // Check username and password are set
-    if ( !isset($_POST['email'], $_POST['password']) ) {
+    if (!isset($_POST['email'], $_POST['password'])) {
 
         // kill if both not filled out
-        $msg ='Please fill both the username and password field!';
+        $msg = 'Please fill both the username and password field!';
         echo "<script type='text/javascript'>alert('$msg');</script>";
     }
 
@@ -44,16 +45,19 @@ if(isset($_POST["login"])){
 
             } else {
 
-                $msg= 'Incorrect password!';
+                $msg = 'Incorrect password!';
                 echo "<script type='text/javascript'>alert('$msg');</script>";
-                header('Location: login.php?message=Incorrect Password');
+//                header('Location: login.php?message=Incorrect Password');
+
+
+
             }
 
         } else {
 
-            $msg= 'Incorrect email!';
+            $msg = 'Incorrect email!';
             echo "<script type='text/javascript'>alert('$msg');</script>";
-            header('Location: login.php?message=Incorrect Email');
+//            header('Location: login.php?message=Incorrect Email');
 
         }
 
@@ -63,7 +67,11 @@ if(isset($_POST["login"])){
     }
 }
 
+
 ?>
+
+
+
 
 <?=template_header('Login');?>
 
@@ -139,3 +147,4 @@ if(isset($_POST["login"])){
 </section>
 
 <?=template_footer();?>
+

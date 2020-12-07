@@ -81,7 +81,7 @@ if(isset($_POST["submit"])){
                 <div class="field">
                     <label class="label">Notes</label>
                     <div class="control">
-                        <textarea name="notes" id=notes cols="90" rows="10"></textarea>
+                        <textarea name="notes" id=notes cols="40" rows="10"></textarea>
                     </div>
                 </div>
 
@@ -93,5 +93,4 @@ if(isset($_POST["submit"])){
             </form>
         </div>
     </section>
-</div>
 </div>

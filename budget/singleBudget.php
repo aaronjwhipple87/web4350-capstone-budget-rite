@@ -125,4 +125,3 @@ $remainingAmt = ($budgetSum < 0 ? ($plannedAmt + $budgetSum): ($plannedAmt - $bu
         </div>
     </section>
 </div>
-</div>

@@ -135,6 +135,108 @@ $sql->close();
 
 <?=template_menu();?>
 
+
+<!-- Modal 1 for new users -->
+<div id="modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <div class="content">
+                <h1 class="is-italic has-text-success is-bold">Welcome, New User!</h1>
+                <p>To begin, please press the Next button below.</p>
+            </div>
+            <a href="#modal2" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="next">Next</a>
+            <button class="button is-danger is-small" id="closebtn">Close</button>
+            <p class="has-text-danger"> *If no budget is entered this screen will continue to re-appear on dash</p>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- Modal 2 for new users -->
+<div id="modal2" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <div class="content">
+                <h1 class="is-italic is-bold has-text-success">STEP 1:</h1>
+
+                <p class="image is-4by3">
+                    <img src="img/step1.png" alt="step 1- create a budget">
+                </p>
+                <h4 class="has-text-danger is-italic">Click on the 'Create Budget' button</h4>
+            </div>
+            <a href="#modal3" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="next2">Next</a>
+            <a href="#modal" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="previous">Previous</a>
+            <button class="button is-danger is-small" id="closebtn2">Close</button>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- Modal 3 for new users -->
+<div id="modal3" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <div class="content">
+                <h1 class="is-italic is-bold has-text-success">STEP 2:</h1>
+
+                <p class="image is-4by3">
+                    <img src="img/step2.png" alt="step 2- fill out budget form">
+                </p>
+                <h4 class="has-text-danger is-italic">Fill out Budget Form</h4>
+            </div>
+            <a href="#modal4" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="next3">Next</a>
+            <a href="#modal2" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="previous2">Previous</a>
+            <button class="button is-danger is-small" id="closebtn3">Close</button>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- Modal 4 for new users -->
+<div id="modal4" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <div class="content">
+                <h1 class="is-italic is-bold has-text-success">STEP 3:</h1>
+
+                <p class="image is-4by3">
+                    <img src="img/step3.png" alt="step 3- click add transaction button">
+                </p>
+                <h4 class="has-text-danger is-italic">Click on the 'Add Transaction' button</h4>
+            </div>
+            <a href="#modal5" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="next4">Next</a>
+            <a href="#modal3" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="previous3">Previous</a>
+            <button class="button is-danger is-small" id="closebtn4">Close</button>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- Modal 5 for new users -->
+<div id="modal5" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <div class="content">
+                <h1 class="is-italic is-bold has-text-success">STEP 3:</h1>
+
+                <p class="image is-4by3">
+                    <img src="img/step4.png" alt="step 2- fill out transaction form">
+                </p>
+                <h4 class="has-text-danger is-italic">Fill out Transaction Form</h4>
+            </div>
+            <a href="#modal3" data-toggle="modal" data-dismiss="modal" class="button is-info is-small" id="previous4">Previous</a>
+            <button class="button is-danger is-small" id="closebtn5">Close</button>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+
 <div class="column">
 <section class="section">
     <div class="container">
@@ -150,43 +252,6 @@ $sql->close();
         </div>
     </div>
 </section>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Date', 'Income', 'Expenses'],
-                <?php foreach ($chartTransactions as $row): ?>
-                    if ($row['expenses'] ) {
-                        
-                    }
-                    ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
-                <?php endforeach;?>
-            ]);
-
-            var options = {
-                curveType: 'function',
-                legend: { position: 'bottom' },
-                animation: {
-                    startup: true,
-                    duration: 500,
-                    easing: 'in',
-                },
-                vAxis: {
-                    format: 'currency',
-                },
-                series: {
-                    0: { color: '#298046'},
-                    1: { color: '#f14668'},
-                }
-            };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-        }
-    </script>
 <div class="section">
     <div class="container">
         <p class="title">Monthly Income & Expenses: </p>
@@ -266,4 +331,118 @@ $sql->close();
     </div>
 </section>
 </div>
-</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Date', 'Income', 'Expenses'],
+            <?php foreach ($chartTransactions as $row): ?>
+            ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
+            <?php endforeach;?>
+        ]);
+
+        var options = {
+            curveType: 'function',
+            legend: { position: 'bottom' },
+            animation: {
+                startup: true,
+                duration: 500,
+                easing: 'in',
+            },
+            vAxis: {
+                format: 'currency',
+            },
+            series: {
+                0: { color: '#298046'},
+                1: { color: '#f14668'},
+            }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+<?php
+
+$modal = <<<EOT
+  <script>
+  $(document).ready(function(){
+    $("#modal").addClass("is-active");
+  });
+  //next modal
+  $("#next").click(function() {
+    $("#modal").removeClass("is-active"); 
+    $("#modal2").addClass("is-active");
+  });
+  $("#next2").click(function() {
+    $("#modal2").removeClass("is-active"); 
+    $("#modal3").addClass("is-active");
+  });
+  $("#next3").click(function() {
+    $("#modal3").removeClass("is-active"); 
+    $("#modal4").addClass("is-active");
+  });
+  $("#next4").click(function() {
+    $("#modal4").removeClass("is-active"); 
+    $("#modal5").addClass("is-active");
+  });
+  
+  //previous modal
+  $("#previous").click(function() {
+    $("#modal2").removeClass("is-active"); 
+    $("#modal").addClass("is-active");
+  });
+  $("#previous2").click(function() {
+    $("#modal3").removeClass("is-active"); 
+    $("#modal2").addClass("is-active");
+  });
+  $("#previous3").click(function() {
+    $("#modal4").removeClass("is-active"); 
+    $("#modal3").addClass("is-active");
+  });
+  $("#previous4").click(function() {
+    $("#modal5").removeClass("is-active"); 
+    $("#modal4").addClass("is-active");
+  });
+  
+  //close modal
+  $(".modal-close").click(function() {
+    $(".modal").removeClass("is-active"); 
+  });
+  $("#closebtn").click(function() {
+    $(".modal").removeClass("is-active"); 
+  });
+  $("#closebtn2").click(function() {
+    $("#modal2").removeClass("is-active"); 
+  });
+  $("#closebtn3").click(function() {
+    $("#modal3").removeClass("is-active"); 
+  });
+  $("#closebtn4").click(function() {
+    $("#modal4").removeClass("is-active"); 
+  });
+  $("#closebtn5").click(function() {
+    $("#modal5").removeClass("is-active"); 
+  });
+  </script>
+EOT;
+
+// get info from db
+if ($sql = $con->prepare('SELECT * FROM budgets WHERE userID = ?')) {
+    $sql->bind_param('i', $_SESSION['id']);
+    $sql->execute();
+    $sql->store_result();
+
+    if ($sql->num_rows == 0) {
+        echo $modal;
+    }
+
+}
+$sql->close();
+
+?>

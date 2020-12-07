@@ -142,4 +142,3 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
     </div>
 </section>
 </div>
-</div>

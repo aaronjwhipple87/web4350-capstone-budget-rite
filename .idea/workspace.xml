@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3e2b581-2917-4420-a57a-f8b987db6ccb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/addBudget.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/addBudget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/allBills.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/allBills.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/scss/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/scss/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +96,16 @@
       <workItem from="1607041551968" duration="1743000" />
       <workItem from="1607044684280" duration="1879000" />
       <workItem from="1607122954328" duration="824000" />
-      <workItem from="1607124618765" duration="342000" />
+      <workItem from="1607124618765" duration="1151000" />
+      <workItem from="1607125799142" duration="538000" />
+      <workItem from="1607274280542" duration="77000" />
+      <workItem from="1607279564640" duration="861000" />
+      <workItem from="1607280933824" duration="17286000" />
+      <workItem from="1607357324959" duration="499000" />
+      <workItem from="1607357840896" duration="186000" />
+      <workItem from="1607358079609" duration="1954000" />
+      <workItem from="1607360054139" duration="2434000" />
+      <workItem from="1607362522495" duration="1185000" />
     </task>
     <servers />
   </component>
@@ -99,22 +117,24 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1283" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603733649107" />
-    <state x="402" y="144" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603216170362">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="-1317" y="220" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607125606232">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1317" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607125606232" />
     <state x="402" y="144" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603216170362" />
     <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604535982262">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1604535982262" />
-    <state x="317" y="116" key="EditFileWatcherDialog" timestamp="1603737658623">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="317" y="116" key="EditFileWatcherDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603737658623" />
-    <state x="-1184" y="288" key="FileChooserDialogImpl" timestamp="1607123783904">
+    <state x="-1444" y="177" key="EditFileWatcherDialog" timestamp="1607357995060">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1184" y="288" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607123783904" />
+    <state x="-1444" y="177" key="EditFileWatcherDialog/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607357995060" />
+    <state x="317" y="116" key="EditFileWatcherDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603737658623" />
+    <state x="-1184" y="288" key="FileChooserDialogImpl" timestamp="1607360050601">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1184" y="288" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607360050601" />
     <state x="491" y="188" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1606916955801" />
     <state x="-1480" y="230" key="MergeDialog" timestamp="1603722220616">
       <screen x="-1920" y="0" width="1920" height="1040" />
@@ -132,9 +152,9 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1304" y="240" key="run.anything.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606833771510" />
-    <state x="-1028" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1606768871968">
+    <state x="-1028" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1607348494101">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1028" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1606768871968" />
+    <state x="-1028" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607348494101" />
   </component>
 </project>
