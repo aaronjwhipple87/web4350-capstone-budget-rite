@@ -158,6 +158,9 @@ $sql->close();
             var data = google.visualization.arrayToDataTable([
                 ['Date', 'Income', 'Expenses'],
                 <?php foreach ($chartTransactions as $row): ?>
+                    if ($row['expenses'] ) {
+                        
+                    }
                     ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
                 <?php endforeach;?>
             ]);
