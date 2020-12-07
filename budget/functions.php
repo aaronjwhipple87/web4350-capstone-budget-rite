@@ -27,7 +27,6 @@ function template_header($title) {
     <title>$title</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/graph.css">
-    <link rel="stylesheet" href="css/main.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="js/main.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -129,7 +128,7 @@ function template_footer() {
 <footer class="footer">
   <div class="columns is-centered is-vcentered">
     <div class="column is-one-third has-text-centered" id="footerImage">
-        <img src="img/BR_small-icon.png" alt="">
+        <img class="footer-icon" src="img/BR_small-icon.png" alt="">
     </div>
     <div class="column is-one-third has-text-centered">
       <a href="dashboard.php" class="has-text-primary">Home</a> |
@@ -199,7 +198,7 @@ function template_menu() {
           <li><a href="settings.php">Settings</a></li>
         </ul>
         </aside>
-        <img src="img/BR_small-icon.png" id="leftLogo">
+       
     </div>
 EOT;
 }

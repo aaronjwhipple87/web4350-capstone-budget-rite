@@ -41,7 +41,7 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                 <span>See Current Bills List</span>
             </a>
         </div>
-        <div class="container pt-3">
+        <div class="container pt-3 table-wrapper">
             <table class="table is-bordered is-fullwidth">
                 <thead>
                 <tr>
