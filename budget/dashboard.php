@@ -140,7 +140,7 @@ $sql->close();
     <div class="modal-content">
         <div class="box">
 
-                <div class="media-content">
+
                     <div class="content">
                         <p>
                             <strong>Welcome, New User!</strong>
@@ -148,8 +148,8 @@ $sql->close();
                             To begin you first need to Create a Budget.
                         </p>
                     </div>
-                    <button class="button is-danger is-small" id="closebtn">Close Modal</button>
-                </div>
+                    <button class="button is-danger is-small" id="closebtn">Close</button>
+
         </div>
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
@@ -314,5 +314,18 @@ $modal = <<<EOT
   });
   </script>
 EOT;
-echo $modal;
+
+// get info from db
+if ($sql = $con->prepare('SELECT * FROM budgets WHERE userID = ?')) {
+    $sql->bind_param('i', $_SESSION['id']);
+    $sql->execute();
+    $sql->store_result();
+
+    if ($sql->num_rows == 0) {
+        echo $modal;
+    }
+
+}
+$sql->close();
+
 ?>
