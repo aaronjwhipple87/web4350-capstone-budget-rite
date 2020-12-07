@@ -22,6 +22,24 @@ $sql2->execute();
 $result2 = $sql2->get_result();
 $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
 
+// get budget totals
+$sql = $con->prepare("
+SELECT b.budgetID, SUM(t.transactionAmount) as budgetSum 
+FROM transactions t
+INNER JOIN
+    budgets b 
+    on t.budgetID = b.budgetID
+WHERE b.userId = ?
+    AND t.published = 1
+GROUP BY b.budgetID
+");
+
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$result = $sql->get_result();
+$budgetTotal = $result->fetch_all(MYSQLI_ASSOC);
+$sql->close();
+
 ?>
 
 <?=template_header('Reports');?>
@@ -63,6 +81,7 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
                 <p><?=$row["plannedSum"];?></p>
                 <?php endforeach; ?>
             </div>
+
             <div class="column">
                 <h3>Spent</h3>
                 <div class="single-chart">
@@ -70,7 +89,7 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
                 if ($row['plannedSum'] == 0) {
                     $percentage2 = 0;
                 } else {
-                    $percentage2 = $row['appliedSum'] / $row['plannedSum'] * 100;
+                    $percentage2 = abs($row['budgetSum']) / $row['plannedSum'] * 100;
                 }
             endforeach;
                 ?>
@@ -83,8 +102,8 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
 
-          <?php foreach($budgets2 as $row):?>
-                        <text x="18" y="20.35" class="percentage"><?=$row['appliedSum']?></text>
+          <?php foreach($budgetTotal as $row):?>
+                        <text x="18" y="20.35" class="percentage"><?=abs($row['budgetSum']);?></text>
           <?php endforeach;?>
                     </svg>
                 </div>
@@ -95,11 +114,12 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
                 <p><?=$row['appliedAmount'];?></p>
                 <br>
                 <?php endforeach;?>
-                <?php foreach ($budgets2 as $row):?>
+                <?php foreach ($budgetTotal as $row):?>
                 <h3>Total</h3>
-                <p><?=$row["appliedSum"];?></p>
+                <p><?=abs($row["budgetSum"]);?></p>
                 <?php endforeach; ?>
             </div>
+
             <div class="column">
                 <h3>Remaining</h3>
                 <div class="single-chart">
