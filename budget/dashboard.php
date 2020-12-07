@@ -83,8 +83,8 @@ FROM
         SELECT
             DATE_FORMAT(t.transactionDate, '%b, %D') as transactionDate, 
             SUM(t.transactionAmount) as expenses
-	    FROM
-	        transactions as t
+        FROM
+            transactions as t
         LEFT JOIN
             budgets as b on t.budgetID = b.budgetID
         WHERE
@@ -102,11 +102,11 @@ LEFT JOIN
         SELECT
             DATE_FORMAT(t.transactionDate, '%b, %D') as transactionDate, 
             SUM(t.transactionAmount) as income
-	    FROM
-	        transactions as t
-	    LEFT JOIN
-		    budgets as b on t.budgetID = b.budgetID
-	    WHERE
+        FROM
+            transactions as t
+        LEFT JOIN
+            budgets as b on t.budgetID = b.budgetID
+        WHERE
             b.userID = ?
             AND t.published = 1
             AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
@@ -118,6 +118,7 @@ LEFT JOIN
     ) as income
     
 ON expenses.transactionDate = income.transactionDate
+
 ");
 
 $sql->bind_param('ss', $_SESSION['id'], $_SESSION['id']);
@@ -255,7 +256,7 @@ $sql->close();
 <div class="section">
     <div class="container">
         <p class="title">Monthly Income & Expenses: </p>
-        <div class="card" id="curve_chart"></div>
+            <?= $chartTransactions ? '<div class="card" id="curve_chart"></div>' : ''?>
     </div>
 </div>
 </section>
@@ -340,7 +341,7 @@ $sql->close();
         var data = google.visualization.arrayToDataTable([
             ['Date', 'Income', 'Expenses'],
             <?php foreach ($chartTransactions as $row): ?>
-            ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
+                ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
             <?php endforeach;?>
         ]);
 
