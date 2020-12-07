@@ -208,5 +208,4 @@ if(isset($_POST["changePassword"])){
 </div>
 </div>
 </div>
-</div>
 <?=template_footer();?>

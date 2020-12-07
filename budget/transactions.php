@@ -25,7 +25,9 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 <?=template_header('Transactions');?>
 
 <?=template_nav();?>
+
 <?=template_menu();?>
+
 <div class="column">
     <section class="section">
         <div class="container">
@@ -89,5 +91,4 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
             </table>
         </div>
     </section>
-</div>
 </div>

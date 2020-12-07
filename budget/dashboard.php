@@ -135,6 +135,27 @@ $sql->close();
 
 <?=template_menu();?>
 
+<div id="modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+
+
+                    <div class="content">
+                        <p>
+                            <strong>Welcome, New User!</strong>
+                            <br>
+                            To begin you first need to Create a Budget.
+                        </p>
+                    </div>
+                    <button class="button is-danger is-small" id="closebtn">Close</button>
+
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+
 <div class="column">
 <section class="section">
     <div class="container">
@@ -150,40 +171,6 @@ $sql->close();
         </div>
     </div>
 </section>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Date', 'Income', 'Expenses'],
-                <?php foreach ($chartTransactions as $row): ?>
-                    ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
-                <?php endforeach;?>
-            ]);
-
-            var options = {
-                curveType: 'function',
-                legend: { position: 'bottom' },
-                animation: {
-                    startup: true,
-                    duration: 500,
-                    easing: 'in',
-                },
-                vAxis: {
-                    format: 'currency',
-                },
-                series: {
-                    0: { color: '#298046'},
-                    1: { color: '#f14668'},
-                }
-            };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-        }
-    </script>
 <div class="section">
     <div class="container">
         <p class="title">Monthly Income & Expenses: </p>
@@ -262,5 +249,83 @@ $sql->close();
         </table>
     </div>
 </section>
+
+    <button></button>
 </div>
-</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Date', 'Income', 'Expenses'],
+            <?php foreach ($chartTransactions as $row): ?>
+            ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
+            <?php endforeach;?>
+        ]);
+
+        var options = {
+            curveType: 'function',
+            legend: { position: 'bottom' },
+            animation: {
+                startup: true,
+                duration: 500,
+                easing: 'in',
+            },
+            vAxis: {
+                format: 'currency',
+            },
+            series: {
+                0: { color: '#298046'},
+                1: { color: '#f14668'},
+            }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+
+    $(".modal-button").click(function() {
+        var target = $(this).data("target");
+        $("html").addClass("is-clipped");
+        $(target).addClass("is-active");
+    });
+
+    $(".modal-close").click(function() {
+        $("html").removeClass("is-clipped");
+        $(this).parent().removeClass("is-active");
+    });
+</script>
+
+<?php
+
+$modal = <<<EOT
+  <script>
+  $(document).ready(function(){
+    $(".modal").addClass("is-active");
+  });
+  $(".modal-close").click(function() {
+    $(".modal").removeClass("is-active"); 
+  });
+  $("#closebtn").click(function() {
+    $(".modal").removeClass("is-active"); 
+  });
+  </script>
+EOT;
+
+// get info from db
+if ($sql = $con->prepare('SELECT * FROM budgets WHERE userID = ?')) {
+    $sql->bind_param('i', $_SESSION['id']);
+    $sql->execute();
+    $sql->store_result();
+
+    if ($sql->num_rows == 0) {
+        echo $modal;
+    }
+
+}
+$sql->close();
+
+?>

@@ -1,3 +1,4 @@
+
 <?php
 
 //db connection
@@ -20,7 +21,6 @@ function template_header($title) {
     echo <<<EOT
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,19 +30,17 @@ function template_header($title) {
     <link rel="stylesheet" href="css/main.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="js/main.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-
 <body>
-
 EOT;
 }
 
 // Template navbar
 function template_nav() {
-  //not logged in
-  if (!isset($_SESSION['loggedin'])) {
-    echo <<<EOT
-
+    //not logged in
+    if (!isset($_SESSION['loggedin'])) {
+        echo <<<EOT
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="dashboard.php">
@@ -79,11 +77,10 @@ function template_nav() {
         
       </div>
     </nav>
-
 EOT;
-  } else {
-    //logged in
-    echo <<<EOT
+    } else {
+        //logged in
+        echo <<<EOT
         
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -123,7 +120,7 @@ EOT;
     </nav>
     
 EOT;
-  }
+    }
 }
 
 // Template footer
@@ -168,7 +165,7 @@ EOT;
 }
 
 function template_menu() {
-  echo <<<EOT
+    echo <<<EOT
   <div class="columns is-fullheight">
     <div class="column is-2 is-sidebar-menu is-hidden-mobile">
       <aside class="menu">
@@ -179,7 +176,7 @@ function template_menu() {
         <p class="menu-label">Transactions</p>
         <ul class="menu-list">
           <li><a href="addTrans.php">Add Transaction</a></li>
-          <li><a href="transactions.php">All Transaction</a>
+          <li><a href="transactions.php">Transaction</a>
             <ul>
               <li><a href="income.php">Income</a></li>
               <li><a href="savings.php">Savings</a></li>
@@ -191,7 +188,7 @@ function template_menu() {
         <p class="menu-label">Budgets</p>
         <ul class="menu-list">
           <li><a href="addBudget.php">Create Budget</a></li>
-          <li><a href="budgets.php">All Budgets</a></li>
+          <li><a href="budgets.php">Budgets</a></li>
         </ul>
         <p class="menu-label">Reporting</p>
         <ul class="menu-list">
@@ -204,5 +201,6 @@ function template_menu() {
         </aside>
         <img src="img/BR_small-icon.png" id="leftLogo">
     </div>
-  EOT;
+EOT;
 }
+

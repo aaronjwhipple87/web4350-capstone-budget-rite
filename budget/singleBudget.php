@@ -57,6 +57,9 @@ $remainingAmt = ($budgetSum < 0 ? ($plannedAmt + $budgetSum): ($plannedAmt - $bu
 
 <?=template_nav();?>
 
+<?=template_menu();?>
+
+<div class="column">
     <section class="section is-flex is-flex-direction-column is-align-content-center">
         <div class="container ">
             <div class="columns">
@@ -121,5 +124,4 @@ $remainingAmt = ($budgetSum < 0 ? ($plannedAmt + $budgetSum): ($plannedAmt - $bu
             <h1 class="title <?= ($budgetSum < 0  ? 'has-text-danger' : 'has-text-black') ?>">Total: <?=$budgetSum?></h1>
         </div>
     </section>
-
-<?=template_footer();?>
+</div>

@@ -26,6 +26,7 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 <?=template_header('Expenses');?>
 
 <?=template_nav();?>
+
 <?=template_menu();?>
 
 <div class="column">
@@ -91,5 +92,4 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
             </table>
         </div>
     </section>
-</div>
 </div>

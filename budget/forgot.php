@@ -27,6 +27,10 @@ if(isset($_POST["submit"])){
 
             mail($_POST['email'],$subject,$message,$headers);
 
+
+
+
+
             $msg = 'Please check your email for reset link';
             echo "<script type='text/javascript'>alert('$msg');</script>";
             header( "Refresh:1; url=index.php");

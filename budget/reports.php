@@ -45,7 +45,9 @@ $sql->close();
 <?=template_header('Reports');?>
 
 <?=template_nav();?>
+
 <?=template_menu();?>
+
 <!-- document main content goes here -->
 <div class="column">
 <section class="section">
@@ -159,5 +161,4 @@ $sql->close();
         </div>
     </div>
 </section>
-</div>
 </div>
