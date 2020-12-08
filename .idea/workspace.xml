@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3e2b581-2917-4420-a57a-f8b987db6ccb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/main.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/budget/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/scss/.sass-cache/1638ee12d36cc9ae4127f1c40fc93098b1f6fd85/main.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/.sass-cache/1638ee12d36cc9ae4127f1c40fc93098b1f6fd85/main.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/scss/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/scss/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/settings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +105,9 @@
       <workItem from="1607358079609" duration="1954000" />
       <workItem from="1607360054139" duration="2434000" />
       <workItem from="1607362522495" duration="1962000" />
-      <workItem from="1607364894071" duration="990000" />
+      <workItem from="1607364894071" duration="1729000" />
+      <workItem from="1607393426615" duration="10595000" />
+      <workItem from="1607459321683" duration="698000" />
     </task>
     <servers />
   </component>
@@ -145,6 +150,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="151" y="0" width="996" height="680" key="SettingsEditor/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603737644564" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1607396094745">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607396094745" />
+    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607396202376">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607396202376" />
     <state x="-1304" y="240" key="run.anything.popup" timestamp="1606833771510">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
