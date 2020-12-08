@@ -59,8 +59,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: stretch; }
-  .columns.is-fullheight .column {
-    overflow-y: auto; }
 
 .is-sidebar-menu {
   position: relative;

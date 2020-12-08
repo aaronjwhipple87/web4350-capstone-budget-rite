@@ -74,6 +74,7 @@ $sql->close();
 
 // google chart query
 $sql = $con->prepare("
+
 SELECT
     expenses.transactionDate as transactionDate,
     IFNULL(income.income, 0) as income,
@@ -97,7 +98,7 @@ FROM
         GROUP BY
             DATE_FORMAT(t.transactionDate, '%b, %D')
     ) as expenses
-LEFT JOIN
+ LEFT JOIN
     (
         SELECT
             DATE_FORMAT(t.transactionDate, '%b, %D') as transactionDate, 
