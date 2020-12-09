@@ -267,8 +267,8 @@ $sql->close();
 </div>
 
 
-<div class="column">
-<section class="section">
+<div class="column" id="dashboardMobile">
+<section class="section dashboardMobile">
     <div class="container">
         <div class="columns">
             <div class="column is-three-quarters">
@@ -282,14 +282,14 @@ $sql->close();
         </div>
     </div>
 </section>
-<div class="section">
+<div class="section dashboardMobile">
         <div class="container">
             <p class="title">Monthly Income & Expense: </p>
             <div class="card" id="donutchart" style="width: 900px; height: 500px;"></div>
         </div>
 </div>
 </section>
-<section class="section">
+<section class="section dashboardMobile">
     <div class="container">
         <div class="columns">
             <div class="column">
@@ -333,15 +333,15 @@ $sql->close();
         </div>
     </div>
 </section>
-<section class="section">
+<section class="section dashboardMobile">
     <div class="container">
         <p class="title">Most Recent Transactions:</p>
         <table class="table is-fullwidth is-hoverable">
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Category</th>
-                    <th>Budget</th>
+                    <th class="hidden-mobile">Category</th>
+                    <th class="hidden-mobile">Budget</th>
                     <th>Amount</th>
                     <th>Date</th>
                 </tr>
@@ -350,8 +350,8 @@ $sql->close();
                 <?php foreach ($transactions as $row): ?>
                     <tr class="<?= $row['transactionType'] == 'Income' ? 'is-selected' : '' ?>">
                         <td class="has-text-weight-bold"><?=$row['transactionName']?></td>
-                        <td><?=$row['transactionType']?></td>
-                        <td><?=$row['budgetName']?></td>
+                        <td class="hidden-mobile"><?=$row['transactionType']?></td>
+                        <td class="hidden-mobile"><?=$row['budgetName']?></td>
                         <td><?=$row['transactionAmount']?></td>
                         <td><?=$row['transactionDate']?></td>
                     </tr>

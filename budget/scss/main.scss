@@ -100,6 +100,17 @@ body {
         font-size: 1.5rem;
     }
 
+    #dashboardMobile {
+        width: 90%;
+    }
+
+    .dashboardMobile {
+        width: 100%;
+    }
+
+    .hidden-mobile {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -116,9 +127,6 @@ body {
     html, body{
         font-size: 12px;
     }
-
-    
-
 }
 
 @media only screen and (max-width: 1200px){
@@ -129,12 +137,6 @@ body {
 
 }
 
-#menu {
-    height: calc(100vh - ( #{$navbar-height} - .75rem ) );
-    position: fixed;
-    left: 0;
-    bottom: 0;
-}
 
 //footer
 .footer-icon{
