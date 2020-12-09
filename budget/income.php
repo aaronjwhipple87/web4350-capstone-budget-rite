@@ -42,13 +42,13 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                 <span>See All Income</span>
             </a>
         </div>
-        <div class="container pt-3">
+        <!-- desktop chart -->
+        <div class="container pt-3 is-hidden-mobile">
             <table class="table is-bordered is-fullwidth">
                 <thead>
                 <tr>
                     <td>#</td>
                     <td>Budget Name</td>
-                    <td>Transaction Type</td>
                     <td>Transaction Name</td>
                     <td>Amount</td>
                     <td>Created</td>
@@ -63,9 +63,6 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                         </td>
                         <td>
                             <?=$row['budgetName']?>
-                        </td>
-                        <td>
-                            <?=$row['transactionType']?>
                         </td>
                         <td>
                             <?=$row['transactionName']?>
@@ -91,5 +88,50 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                 </tbody>
             </table>
         </div>
+        <!-- mobile chart -->
+        <div class="container pt-3 is-hidden-desktop">
+            <table class="table is-bordered">
+                <thead>
+                <tr>
+
+                    <td>Budget Name</td>
+
+                    <td>Transaction Name</td>
+                    <td>Amount</td>
+
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($trans as $row): ?>
+                    <tr>
+
+                        <td>
+                            <?=$row['budgetName']?>
+                        </td>
+
+                        <td>
+                            <?=$row['transactionName']?>
+                        </td>
+                        <td class="<?= ($row['transactionType'] == 'Bills' || $row['transactionType'] == 'Expenses') ? 'has-text-danger' : 'has-text-black' ?>">
+
+                            <?=$row['transactionAmount']?>
+
+                        </td>
+
+                        <td>
+                            <a href="editTrans.php?id=<?=$row['transactionID']?>" class="button is-link is-small" title="Edit Income">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                            <a href="deleteTrans.php?id=<?=$row['transactionID']?>" class="button is-danger is-small" title="Delete Income">
+                                <span class="icon"><i class="fas fa-trash"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+
     </section>
 </div>

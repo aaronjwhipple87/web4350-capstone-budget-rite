@@ -77,7 +77,8 @@ $remainingAmt = ($budgetSum < 0 ? ($plannedAmt + $budgetSum): ($plannedAmt - $bu
                 </div>
             </div>
         </div>
-        <div class="container pt-3">
+        <!-- desktop chart -->
+        <div class="container pt-3 is-hidden-mobile">
             <table class="table is-bordered">
                 <thead>
                 <tr>
@@ -108,6 +109,45 @@ $remainingAmt = ($budgetSum < 0 ? ($plannedAmt + $budgetSum): ($plannedAmt - $bu
                         </td>
                         <td>
                             <?=$row['transactionDate']?>
+                        </td>
+                        <td>
+                            <a href="editTrans.php?id=<?=$row['transactionID']?>" class="button is-link is-small" title="Edit Trans">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                            <a href="deleteTrans.php?id=<?=$row['transactionID']?>" class="button is-danger is-small" title="Delete Trans">
+                                <span class="icon"><i class="fas fa-trash"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+            <h1 class="title <?= ($budgetSum < 0  ? 'has-text-danger' : 'has-text-black') ?>">Total: <?=$budgetSum?></h1>
+        </div>
+        <!-- mobile chart -->
+        <div class="container pt-3 is-hidden-desktop">
+            <table class="table is-bordered">
+                <thead>
+                <tr>
+                    <td>Transaction Type</td>
+                    <td>Transaction Name</td>
+                    <td>Amount</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($trans as $row): ?>
+                    <tr>
+                        <td>
+                            <?=$row['transactionType']?>
+                        </td>
+                        <td>
+                            <?=$row['transactionName']?>
+                        </td>
+                        <td class="<?= ($row['transactionType'] == 'Bills' || $row['transactionType'] == 'Expenses') ? 'has-text-danger' : 'has-text-black' ?>">
+
+                            <?=$row['transactionAmount']?>
+
                         </td>
                         <td>
                             <a href="editTrans.php?id=<?=$row['transactionID']?>" class="button is-link is-small" title="Edit Trans">

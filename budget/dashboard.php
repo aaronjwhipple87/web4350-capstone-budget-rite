@@ -340,8 +340,8 @@ $sql->close();
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th class="hidden-mobile">Category</th>
-                    <th class="hidden-mobile">Budget</th>
+                    <th class="is-hidden-mobile">Category</th>
+                    <th class="is-hidden-mobile">Budget</th>
                     <th>Amount</th>
                     <th>Date</th>
                 </tr>
@@ -350,12 +350,36 @@ $sql->close();
                 <?php foreach ($transactions as $row): ?>
                     <tr class="<?= $row['transactionType'] == 'Income' ? 'is-selected' : '' ?>">
                         <td class="has-text-weight-bold"><?=$row['transactionName']?></td>
-                        <td class="hidden-mobile"><?=$row['transactionType']?></td>
-                        <td class="hidden-mobile"><?=$row['budgetName']?></td>
+                        <td class="is-hidden-mobile"><?=$row['transactionType']?></td>
+                        <td class="is-hidden-mobile"><?=$row['budgetName']?></td>
                         <td><?=$row['transactionAmount']?></td>
                         <td><?=$row['transactionDate']?></td>
                     </tr>
                 <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!--    mobile table  -->
+<section class="section is-hidden-desktop">
+    <div class="container">
+        <p class="title">Most Recent Transactions:</p>
+        <table class="table is-hoverable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Budget</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($transactions as $row): ?>
+                <tr class="<?= $row['transactionType'] == 'Income' ? 'is-selected' : '' ?>">
+                    <td class="has-text-weight-bold"><?=$row['transactionName']?></td>
+                    <td><?=$row['budgetName']?></td>
+                    <td><?=$row['transactionAmount']?></td>
+                </tr>
+            <?php endforeach;?>
             </tbody>
         </table>
     </div>
