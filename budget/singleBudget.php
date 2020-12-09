@@ -59,7 +59,7 @@ $remainingAmt = ($budgetSum < 0 ? ($plannedAmt + $budgetSum): ($plannedAmt - $bu
 
 <?=template_menu();?>
 
-<div class="column">
+<div class="column main">
     <section class="section is-flex is-flex-direction-column is-align-content-center">
         <div class="container ">
             <div class="columns">

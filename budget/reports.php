@@ -31,7 +31,7 @@ $budgets2 = $result2->fetch_all(MYSQLI_ASSOC);
 <?=template_menu();?>
 
 <!-- document main content goes here -->
-<div class="column">
+<div class="column  main">
 <section class="section">
     <div class="container">
         <h1 class="title">Reports</h1>

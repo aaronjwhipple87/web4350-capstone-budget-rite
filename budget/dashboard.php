@@ -267,7 +267,7 @@ $sql->close();
 </div>
 
 
-<div class="column" id="dashboardMobile">
+<div class="column main" id="dashboardMobile">
     <section class="section dashboardMobile">
         <div class="container">
             <div class="columns">

@@ -31,7 +31,7 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 
 <?=template_menu();?>
 
-<div class="column">
+<div class="column main">
     <section class="section">
         <div class="container">
             <h1 class="title">All Income</h1>

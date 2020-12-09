@@ -119,7 +119,7 @@ if(isset($_POST["changePassword"])){
     }
 </script>
 
-<div class="column">
+<div class="column  main">
 <div class="section">
 <div class="container">
     <h2 class="title">Settings</h2>
