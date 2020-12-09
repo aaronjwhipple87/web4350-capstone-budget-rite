@@ -72,60 +72,88 @@ $result = $sql->get_result();
 $budgetTotals = $result->fetch_all(MYSQLI_ASSOC);
 $sql->close();
 
-// google chart query
+// google chart income amount
 $sql = $con->prepare("
-
-SELECT
-    expenses.transactionDate as transactionDate,
-    IFNULL(income.income, 0) as income,
-    IFNULL(expenses.expenses, 0) as expenses
-FROM
-(
-        SELECT
-            DATE_FORMAT(t.transactionDate, '%b, %D') as transactionDate, 
-            SUM(t.transactionAmount) as expenses
-        FROM
-            transactions as t
-        LEFT JOIN
-            budgets as b on t.budgetID = b.budgetID
-        WHERE
-            b.userID = ?
-            AND t.published = 1
-            AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
-            AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-            AND t.transactionType != 'Income'
-            AND t.transactionType != 'Savings'
-        GROUP BY
-            DATE_FORMAT(t.transactionDate, '%b, %D')
-    ) as expenses
- LEFT JOIN
-    (
-        SELECT
-            DATE_FORMAT(t.transactionDate, '%b, %D') as transactionDate, 
-            SUM(t.transactionAmount) as income
-        FROM
-            transactions as t
-        LEFT JOIN
-            budgets as b on t.budgetID = b.budgetID
-        WHERE
-            b.userID = ?
-            AND t.published = 1
-            AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
-            AND YEAR(t.transactionDate) = YEAR(CURRENT_DATE())
-            AND t.transactionType = 'Income'
-            OR t.transactionType = 'Savings'
-        GROUP BY
-            DATE_FORMAT(t.transactionDate, '%b, %D')
-    ) as income
-    
-ON expenses.transactionDate = income.transactionDate
-
+SELECT 
+	IFNULL(SUM(t.transactionAmount), 0) as incomeAmount
+FROM 
+	transactions as t
+LEFT JOIN
+	budgets as b on t.budgetID = b.budgetID
+WHERE
+	b.userID = ?
+    AND t.published = 1
+    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+    AND t.transactionType = 'Income'
 ");
 
-$sql->bind_param('ss', $_SESSION['id'], $_SESSION['id']);
+$sql->bind_param('i', $_SESSION['id']);
 $sql->execute();
-$result = $sql->get_result();
-$chartTransactions = $result->fetch_all(MYSQLI_ASSOC);
+$sql->bind_result($incomeAmount);
+$sql->fetch();
+$sql->close();
+
+// google chart savings amount
+$sql = $con->prepare("
+SELECT 
+    IFNULL(SUM(t.transactionAmount), 0) as savingsAmount
+FROM 
+	transactions as t
+LEFT JOIN
+	budgets as b on t.budgetID = b.budgetID
+WHERE
+	b.userID = ?
+    AND t.published = 1
+    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+    AND t.transactionType = 'Savings'
+");
+
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$sql->bind_result($savingsAmount);
+$sql->fetch();
+$sql->close();
+
+// google chart bills amount
+$sql = $con->prepare("
+SELECT 
+    IFNULL(SUM(t.transactionAmount), 0) as billsAmount
+FROM 
+	transactions as t
+LEFT JOIN
+	budgets as b on t.budgetID = b.budgetID
+WHERE
+	b.userID = ?
+    AND t.published = 1
+    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+    AND t.transactionType = 'Bills'
+");
+
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$sql->bind_result($billsAmount);
+$sql->fetch();
+$sql->close();
+
+// google chart expenses amount
+$sql = $con->prepare("
+SELECT 
+    IFNULL(SUM(t.transactionAmount), 0) as expensesAmount
+FROM 
+	transactions as t
+LEFT JOIN
+	budgets as b on t.budgetID = b.budgetID
+WHERE
+	b.userID = ?
+    AND t.published = 1
+    AND MONTH(t.transactionDate) = MONTH(CURRENT_DATE())
+    AND t.transactionType = 'Expenses'
+");
+
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$sql->bind_result($expensesAmount);
+$sql->fetch();
 $sql->close();
 ?>
 
@@ -255,10 +283,10 @@ $sql->close();
     </div>
 </section>
 <div class="section">
-    <div class="container">
-        <p class="title">Monthly Income & Expenses: </p>
-            <?= $chartTransactions ? '<div class="card" id="curve_chart"></div>' : ''?>
-    </div>
+        <div class="container">
+            <p class="title">Monthly Income & Expense: </p>
+            <div class="card" id="donutchart" style="width: 900px; height: 500px;"></div>
+        </div>
 </div>
 </section>
 <section class="section">
@@ -333,41 +361,28 @@ $sql->close();
     </div>
 </section>
 </div>
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Date', 'Income', 'Expenses'],
-            <?php foreach ($chartTransactions as $row): ?>
-                ["<?=$row['transactionDate']?>", <?=$row['income']?>, <?=abs($row['expenses'])?>],
-            <?php endforeach;?>
+          ['Income', 'Expenses'],
+          ['Bills', <?=abs($billsAmount)?>],
+          ['Expenses', <?=abs($expensesAmount)?>],
+          ['Savings', <?=$savingsAmount?>],
+          ['Income', <?=$incomeAmount?>],
         ]);
 
         var options = {
-            curveType: 'function',
-            legend: { position: 'bottom' },
-            animation: {
-                startup: true,
-                duration: 500,
-                easing: 'in',
-            },
-            vAxis: {
-                format: 'currency',
-            },
-            series: {
-                0: { color: '#298046'},
-                1: { color: '#f14668'},
-            }
+          pieHole: 0.4,
+          colors: ['red', 'red', '#298046', '#298046'],
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart.draw(data, options);
-    }
-</script>
+      }
+    </script>
 
 <?php
 

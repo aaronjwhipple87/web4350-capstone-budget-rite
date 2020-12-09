@@ -162,8 +162,8 @@ EOT;
 
 function template_menu() {
     echo <<<EOT
-  <div class="columns is-fullheight">
-    <div class="column is-2 is-sidebar-menu is-hidden-mobile">
+  <div  class="columns is-fullheight">
+    <div id="menu" class="column is-2 is-sidebar-menu is-hidden-mobile">
       <aside class="menu">
         <p class="menu-label">General</p>
         <ul class="menu-list">
