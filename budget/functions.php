@@ -82,35 +82,89 @@ EOT;
         echo <<<EOT
         
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
+        <div class="navbar-brand">
         <a class="navbar-item" href="dashboard.php">
           <img src="img/BR-icon.png" alt="">
         </a>
-    
+        
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
-      </div>
-    
-      <div id="navbarBasicExample" class="navbar-menu">
-    
-        <div class="navbar-start">
-         <a class="navbar-item" href="dashboard.php">
-            Home
-          </a>
         </div>
+    
+        <div id="navbarBasicExample" class="navbar-menu">
         
-         <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a href="logout.php"class="button is-primary">
-                Logout
+            <div class="navbar-start">
+             <a class="navbar-item" href="dashboard.php">
+                Home
               </a>
             </div>
-          </div>
-        </div>
+            
+                <div class="navbar-item has-dropdown is-hoverable is-hidden-desktop">
+                    <a class="navbar-link">
+                      Transactions
+                    </a>
+                
+                    <div class="navbar-dropdown">
+                      <a class="navbar-item" href="addTrans.php">
+                        Add Transaction
+                      </a>
+                      <a class="navbar-item" href="transactions.php">
+                        Current Transactions
+                      </a>
+                      <a class="navbar-item" href="income.php">
+                        Income
+                      </a>
+                      <a class="navbar-item" href="savings.php">
+                        Savings
+                      </a>
+                      <a class="navbar-item" href="expenses.php">
+                        Expenses
+                      </a>
+                      <a class="navbar-item" href="bills.php">
+                        Bills
+                      </a>
+                     
+                    </div>
+                </div>
+                
+                <div class="navbar-item has-dropdown is-hoverable is-hidden-desktop">
+                    <a class="navbar-link">
+                      Budgets
+                    </a>
+                
+                    <div class="navbar-dropdown">
+                      <a class="navbar-item" href="budgets.php">
+                        Current Budgets
+                      </a>
+                      <a class="navbar-item" href="addBudget.php">
+                        Add Budget
+                      </a>
+                    </div>
+                </div>
+                <div class="navbar-start is-hidden-desktop">
+                 <a class="navbar-item" href="reports.php">
+                    Reports
+                  </a>
+                </div>
+                <div class="navbar-start is-hidden-desktop">
+                 <a class="navbar-item" href="settings.php">
+                    Settings
+                  </a>
+                </div>
+            
+            
+           <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a href="logout.php"class="button is-primary">
+                    Logout
+                  </a>
+                </div>
+              </div>
+            </div>
         
       </div>
     </nav>
