@@ -38,7 +38,8 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                 <span>See Current Budgets List</span>
             </a>
         </div>
-        <div class="container pt-3">
+        <!-- desktop chart -->
+        <div class="container pt-3 is-hidden-mobile">
             <table class="table is-bordered is-fullwidth">
                 <thead>
                 <tr>
@@ -87,6 +88,45 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                             <a href="publishBudget.php?id=<?=$row['budgetID']?>"  class="button is-primary is-small" title="Add Budget To Current">
                                 <span  class="icon"><i  class="fas fa-plus"></i></i></span>
                             </a>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+        <!-- mobile chart -->
+        <div class="container pt-3 is-hidden-desktop">
+            <table class="table is-bordered">
+                <thead>
+                <tr>
+                    <td>Budget Name</td>
+                    <td>Created</td>
+                    <td>Current List</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($budgets as $row): ?>
+                    <tr>
+                        <td>
+                            <?=$row['budgetName']?>
+                        </td>
+                        <td>
+                            <?=$row['created']?>
+                        </td>
+                        <td >
+                            <?=$row['published']?>
+                        </td>
+                        <td>
+                            <a href="editBudget.php?id=<?=$row['budgetID']?>" class="button is-link is-small" title="Edit Budget">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                            <?php if($row['published'] == ' '){ ?>
+
+                                <a href="publishBudget.php?id=<?=$row['budgetID']?>"  class="button is-primary is-small" title="Add Budget To Current">
+                                    <span  class="icon"><i  class="fas fa-plus"></i></i></span>
+                                </a>
                             <?php } ?>
                         </td>
                     </tr>

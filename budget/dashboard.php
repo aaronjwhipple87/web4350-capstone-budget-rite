@@ -289,7 +289,7 @@ $sql->close();
         </div>
 </div>
 </section>
-<section class="section">
+<section class="section ">
     <div class="container">
         <div class="columns">
             <div class="column">
@@ -333,7 +333,8 @@ $sql->close();
         </div>
     </div>
 </section>
-<section class="section">
+<!--    desktop table  -->
+<section class="section is-hidden-mobile">
     <div class="container">
         <p class="title">Most Recent Transactions:</p>
         <table class="table is-fullwidth is-hoverable">
@@ -356,6 +357,30 @@ $sql->close();
                         <td><?=$row['transactionDate']?></td>
                     </tr>
                 <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!--    mobile table  -->
+<section class="section is-hidden-desktop">
+    <div class="container">
+        <p class="title">Most Recent Transactions:</p>
+        <table class="table is-hoverable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Budget</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($transactions as $row): ?>
+                <tr class="<?= $row['transactionType'] == 'Income' ? 'is-selected' : '' ?>">
+                    <td class="has-text-weight-bold"><?=$row['transactionName']?></td>
+                    <td><?=$row['budgetName']?></td>
+                    <td><?=$row['transactionAmount']?></td>
+                </tr>
+            <?php endforeach;?>
             </tbody>
         </table>
     </div>
