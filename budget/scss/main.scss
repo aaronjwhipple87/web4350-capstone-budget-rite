@@ -120,14 +120,11 @@ body {
 }
 
 #menu {
-    height: 100%;
+    height: calc(100vh - ( #{$navbar-height} - .75rem ) );
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
-
-#menu aside {
-    position: sticky;
-    top: 0;
-}
-
 
 //footer
 .footer-icon{
