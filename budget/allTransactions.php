@@ -30,17 +30,18 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 
 <?=template_menu();?>
 
-<div class="column">
+<div class="column main">
     <section class="section">
         <div class="container">
             <h1 class="title">All Transactions</h1>
-            <p class="subtitle">Welcome, below are all transactions created, including deleted ones. <br>
+            <p class="subtitle">Welcome, below are all transactions created, including deleted ones. <br><br>
                 You can view, edit, or add old transactions to your current transactions list.</p>
             <a href="transactions.php" class="button is-primary is-small">
                 <span>See Current Transactions List</span>
             </a>
         </div>
-        <div class="container pt-3">
+        <!-- desktop table -->
+        <div class="container pt-3 is-hidden-mobile">
             <table class="table is-bordered is-fullwidth">
                 <thead>
                 <tr>
@@ -76,6 +77,56 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                         <td>
                             <?=$row['transactionDate']?>
                         </td>
+                        <td >
+                            <?=$row['published']?>
+                        </td>
+                        <td>
+                            <a href="editTrans.php?id=<?=$row['transactionID']?>" class="button is-link is-small" title="Edit Trans">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                            <?php if($row['published'] == ' '){ ?>
+
+                                <a href="publishTrans.php?id=<?=$row['transactionID']?>" class="button is-primary is-small" title="Publish Trans">
+                                    <span class="icon"><i  class="fas fa-plus"></i></span>
+                                </a>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+        <!-- mobile table -->
+        <div class="container pt-3 is-hidden-desktop">
+            <table class="table is-bordered">
+                <thead>
+                <tr>
+
+                    <td>Budget Name</td>
+
+                    <td>Transaction Name</td>
+                    <td>Amount</td>
+
+                    <td>Current List</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($trans as $row): ?>
+                    <tr>
+
+                        <td>
+                            <?=$row['budgetName']?>
+                        </td>
+
+                        <td>
+                            <?=$row['transactionName']?>
+                        </td>
+                        <td class="<?= ($row['transactionType'] == 'Bills' || $row['transactionType'] == 'Expenses') ? 'has-text-danger' : 'has-text-black' ?>">
+                            <?=$row['transactionAmount']?>
+
+                        </td>
+
                         <td >
                             <?=$row['published']?>
                         </td>

@@ -44,7 +44,7 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
 
 <?=template_menu();?>
 
-<div class="column">
+<div class="column main">
     <section class="section">
         <div class="container">
             <h1 class="title">Current Budgets</h1>
@@ -57,7 +57,8 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                 <span>See All Budgets</span>
             </a>
         </div>
-        <div class="container pt-3">
+        <!-- desktop chart -->
+        <div class="container pt-3 is-hidden-mobile">
             <table class="table is-bordered is-fullwidth">
                 <thead>
                 <tr>
@@ -101,6 +102,35 @@ $budgets = $result->fetch_all(MYSQLI_ASSOC);
                         <td>
                             <?=$row['created']?>
                         </td>
+                        <td>
+                            <a href="editBudget.php?id=<?=$row['budgetID']?>" class="button is-link is-small" title="Edit Budget">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                            <a href="deleteBudget.php?id=<?=$row['budgetID']?>" class="button is-danger is-small" title="Delete Budget">
+                                <span class="icon"><i class="fas fa-trash"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+        <!-- mobile chart -->
+        <div class="container pt-3 is-hidden-desktop">
+            <table class="table is-bordered">
+                <thead>
+                <tr>
+                    <td>Budget Name</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($budgets as $row): ?>
+                    <tr>
+                        <td>
+                            <a href="singleBudget.php?id=<?=$row['budgetID']?>"><?=$row['budgetName']?></a>
+                        </td>
+
                         <td>
                             <a href="editBudget.php?id=<?=$row['budgetID']?>" class="button is-link is-small" title="Edit Budget">
                                 <span class="icon"><i class="fas fa-edit"></i></span>
