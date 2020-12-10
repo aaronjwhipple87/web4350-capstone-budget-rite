@@ -3,14 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a3e2b581-2917-4420-a57a-f8b987db6ccb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/budget/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/allExpenses.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/allExpenses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/allIncome.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/allIncome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/allSavings.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/allSavings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/allTransactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/allTransactions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/allbudgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/allbudgets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/bills.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/bills.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/budgets.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/budgets.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budget/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/scss/.sass-cache/1638ee12d36cc9ae4127f1c40fc93098b1f6fd85/main.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/.sass-cache/1638ee12d36cc9ae4127f1c40fc93098b1f6fd85/main.scssc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/scss/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/scss/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/budget/scss/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/expenses.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/expenses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/income.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/income.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/savings.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/savings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/singleBudget.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/singleBudget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget/transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget/transactions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +113,8 @@
       <workItem from="1607364894071" duration="1729000" />
       <workItem from="1607393426615" duration="10595000" />
       <workItem from="1607459321683" duration="698000" />
+      <workItem from="1607486466430" duration="4729000" />
+      <workItem from="1607533286933" duration="5041000" />
     </task>
     <servers />
   </component>

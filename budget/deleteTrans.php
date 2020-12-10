@@ -49,7 +49,7 @@ if(isset($_POST["delete"])){
 
 <?=template_menu();?>
 
-<div class="column">
+<div class="column main">
     <section class="section">
         <div class="container">
             <h1 class="title">Delete Transaction</h1>

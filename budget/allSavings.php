@@ -31,7 +31,7 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
 
 <?=template_menu();?>
 
-<div class="column">
+<div class="column main">
 <section class="section">
     <div class="container">
         <h1 class="title">All Savings</h1>
@@ -41,13 +41,13 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
             <span>See Current Savings List</span>
         </a>
     </div>
-    <div class="container pt-3">
+    <!-- desktop chart -->
+    <div class="container pt-3 is-hidden-mobile">
         <table class="table is-bordered is-fullwidth">
             <thead>
             <tr>
                 <td>#</td>
                 <td>Budget Name</td>
-                <td>Transaction Type</td>
                 <td>Transaction Name</td>
                 <td>Amount</td>
                 <td>Created</td>
@@ -65,7 +65,52 @@ $trans = $result->fetch_all(MYSQLI_ASSOC);
                         <?=$row['budgetName']?>
                     </td>
                     <td>
-                        <?=$row['transactionType']?>
+                        <?=$row['transactionName']?>
+                    </td>
+                    <td class="<?= ($row['transactionType'] == 'Bills' || $row['transactionType'] == 'Expenses') ? 'has-text-danger' : 'has-text-black' ?>">
+                        <?=$row['transactionAmount']?>
+
+                    </td>
+                    <td>
+                        <?=$row['transactionDate']?>
+                    </td>
+                    <td >
+                        <?=$row['published']?>
+                    </td>
+                    <td>
+                        <a href="editTrans.php?id=<?=$row['transactionID']?>" class="button is-link is-small" title="Edit Trans">
+                            <span class="icon"><i class="fas fa-edit"></i></span>
+                        </a>
+                        <?php if($row['published'] == ' '){ ?>
+
+                            <a href="publishTrans.php?id=<?=$row['transactionID']?>" class="button is-primary is-small" title="Publish Trans">
+                                <span class="icon"><i  class="fas fa-plus"></i></span>
+                            </a>
+                        <?php } ?>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>
+    <!-- mobile chart -->
+    <div class="container pt-3 is-hidden-desktop">
+        <table class="table is-bordered is-fullwidth">
+            <thead>
+            <tr>
+                <td>Budget Name</td>
+                <td>Transaction Name</td>
+                <td>Amount</td>
+                <td>Created</td>
+                <td>Current List</td>
+                <td>Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($trans as $row): ?>
+                <tr>
+                    <td>
+                        <?=$row['budgetName']?>
                     </td>
                     <td>
                         <?=$row['transactionName']?>
