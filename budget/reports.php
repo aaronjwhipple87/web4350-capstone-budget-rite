@@ -30,7 +30,6 @@ $sql->execute();
 $results = $sql->get_result();
 $appliedAmounts = $results->fetch_all(MYSQLI_ASSOC);
 
-<<<<<<< HEAD
 //calculates remaining amount in each category
 $sql = $con->prepare("SELECT b.budgetName, t.transactionType, (b.plannedAmount - ABS(t.transactionAmount)) AS resultAmount
 FROM budgets b
@@ -47,8 +46,6 @@ $resultAmounts = $results->fetch_all(MYSQLI_ASSOC);
 $sql->close();
 
 
-=======
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
 //calculates sum of all budgets
 $sql2 = $con->prepare("
 SELECT SUM(plannedAmount) as plannedSum
@@ -96,8 +93,6 @@ $result = $sql->get_result();
 $appliedTotal = $result->fetch_all(MYSQLI_ASSOC);
 $sql->close();
 
-//Helps get percentages for graphs
-
 ?>
 
 <?=template_header('Reports');?>
@@ -108,7 +103,6 @@ $sql->close();
 
 <!-- document main content goes here -->
 <div class="column  main">
-<<<<<<< HEAD
     <section class="section">
         <div class="container">
             <h1 class="title">Reports</h1>
@@ -120,38 +114,19 @@ $sql->close();
                     <h3 class="reportCategory">Planned</h3>
                     <div class="single-chart">
                         <?php foreach($budgets2 as $row):
-=======
-<section class="section">
-    <div class="container">
-        <h1 class="title">Reports</h1>
-        <?php foreach($resultTotal as $row):?>
-        <h2 class="subtitle">Daily Spending Limit: <?=round($row['resultSum'] / $daysInMonth, 2);?></h2>
-        <?php endforeach;?>
-        <div class="columns">
-            <div class="column">
-                <h3 class="reportCategory">Planned</h3>
-                <div class="single-chart">
-                <?php foreach($budgets2 as $row):
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
                 if ($row['plannedSum'] == 0) {
                     $percentage1 = 0;
                 } else {
                     $percentage1 = $row['plannedSum'] / $row['plannedSum'] * 100;
                 }
             endforeach;?>
-<<<<<<< HEAD
                         <svg viewBox="0 0 36 36" class="circular-chart brown">
                             <path class="circle-bg" d="M18 2.0845
-=======
-                    <svg viewBox="0 0 36 36" class="circular-chart brown">
-                        <path class="circle-bg" d="M18 2.0845
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
                             <path class="circle" stroke-dasharray="<?=$percentage1;?>, 100" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
-<<<<<<< HEAD
                             <?php foreach($budgets2 as $row):?>
                             <text x="18" y="20.35" class="percentage"><?=$row['plannedSum']?></text>
                             <?php endforeach;?>
@@ -181,37 +156,6 @@ $sql->close();
                     <h3 class="reportCategory">Spent</h3>
                     <div class="single-chart">
                         <!--
-=======
-          <?php foreach($budgets2 as $row):?>
-                        <text x="18" y="20.35" class="percentage"><?=$row['plannedSum']?></text>
-          <?php endforeach;?>
-                    </svg>
-                </div>
-                <table class="reportTable">
-                
-                <?php foreach ($budgets as $row): ?>
-                    <tr>
-                    <td><?=$row['budgetName'];?></td>
-                   
-                <td><?=$row['plannedAmount'];?></td>
-                </tr>
-                <?php endforeach;?>
-
-                <?php foreach ($budgets2 as $row):?>
-                <tr>
-                <td>Total</td> 
-                <td><?=$row["plannedSum"];?></td>
-                </tr>
-                <?php endforeach; ?>
-                
-                </table>
-            </div>
-
-            <div class="column">
-                <h3 class="reportCategory">Spent</h3>
-                <div class="single-chart">
-                <!--
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
                     <?php foreach($appliedTotal as $row):
                 if ($row['plannedSum'] == 0) {
                     $percentage2 = 0;
@@ -222,13 +166,8 @@ $sql->close();
             
                 ?>
                 -->
-<<<<<<< HEAD
                         <svg viewBox="0 0 36 36" class="circular-chart green">
                             <path class="circle-bg" d="M18 2.0845
-=======
-                    <svg viewBox="0 0 36 36" class="circular-chart green">
-                        <path class="circle-bg" d="M18 2.0845
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
 
@@ -236,7 +175,6 @@ $sql->close();
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
 
-<<<<<<< HEAD
                             <?php foreach ($appliedTotal as $row):?>
                             <text x="18" y="20.35" class="percentage"><?=$row['appliedSum'];?></text>
                             <?php endforeach;?>
@@ -268,39 +206,6 @@ $sql->close();
                     <h3 class="reportCategory">Remaining</h3>
                     <div class="single-chart">
                         <?php foreach($resultTotal as $row):
-=======
-          <?php foreach ($appliedTotal as $row):?>
-                        <text x="18" y="20.35" class="percentage"><?=$row['appliedSum'];?></text>
-          <?php endforeach;?>
-                    </svg>
-                </div>
-                <table class="reportTable">
-                
-                <?php foreach ($appliedAmounts as $row):?>
-                    <tr>
-                <td><?=$row['budgetName'];?></td>
-
-                <td><?=$row['transactionAmount'];?></td>
-                </tr>
-                <?php endforeach;?>
-               
-                
-                <?php foreach ($appliedTotal as $row):?>
-                <tr>
-                    <td>Total</td>
-               
-                <td><?=$row['appliedSum']?></td>
-
-                </tr>
-                <?php endforeach;?>
-                </table>
-            </div>
-
-            <div class="column">
-                <h3 class="reportCategory">Remaining</h3>
-                <div class="single-chart">
-                    <?php foreach($resultTotal as $row):
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
                 if ($row['plannedSum'] == 0) {
                     $percentage3 = 0;
                 } else {
@@ -312,13 +217,8 @@ $sql->close();
                             <path class="circle-bg" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
-<<<<<<< HEAD
                             <?php foreach($resultTotal as $row):?>
                             <path class="circle" stroke-dasharray="<?=$percentage3;?>, 100" d="M18 2.0845
-=======
-                        <?php foreach($resultTotal as $row):?>
-                        <path class="circle" stroke-dasharray="<?=$percentage3;?>, 100" d="M18 2.0845
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
                             <?php endforeach; ?>
@@ -341,31 +241,8 @@ $sql->close();
                             <td><?=$row["resultSum"];?></td>
                         </tr>
                         <?php endforeach; ?>
-<<<<<<< HEAD
                     </table>
                 </div>
-=======
-                        <?php foreach($resultTotal as $row):?>
-                        <text x="18" y="20.35" class="percentage"><?=$row['resultSum']?></text>
-          <?php endforeach;?>
-                    </svg>
-                </div>
-                <table class="reportTable">
-                <?php foreach($budgets as $row):?>
-                <tr>
-                <td><?=$row['budgetName'];?></td>
-
-                <td><?=$row['resultAmount'];?></td>
-                </tr>
-                <?php endforeach;?>
-                <?php foreach ($resultTotal as $row):?>
-                <tr>
-                <td>Total</td>
-                <td><?=$row["resultSum"];?></td>
-                </tr>
-                <?php endforeach; ?>
-                </table>
->>>>>>> fb995d70ddc69bdf2cfce058c39e9fdbdce17f3a
             </div>
         </div>
     </section>
