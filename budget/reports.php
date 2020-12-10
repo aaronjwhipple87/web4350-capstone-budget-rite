@@ -2,8 +2,10 @@
 require 'functions.php';
 require 'session.php';
 $msg = "";
+$curMonth = idate("m");
+$curYear = idate("Y");
 
-
+$daysInMonth = cal_days_in_month(CAL_GREGORIAN, $curMonth, $curYear);
 //finds all budget names, amounts, and arithmetic to calculate remaining total.
 $sql = $con->prepare("SELECT budgetID, budgetName, plannedAmount, appliedAmount, (plannedAmount - appliedAmount) as resultAmount
 FROM budgets
@@ -90,12 +92,20 @@ $sql->close();
 <section class="section">
     <div class="container">
         <h1 class="title">Reports</h1>
+        <?php foreach($resultTotal as $row):?>
+        <h2 class="subtitle">Daily Spending Limit: <?=round($row['resultSum'] / $daysInMonth, 2);?></h2>
+        <?php endforeach;?>
         <div class="columns">
             <div class="column">
-                <h3>Planned</h3>
+                <h3 class="reportCategory">Planned</h3>
                 <div class="single-chart">
-                    <?php $percentage1 = 100;
-                ?>
+                <?php foreach($budgets2 as $row):
+                if ($row['plannedSum'] == 0) {
+                    $percentage1 = 0;
+                } else {
+                    $percentage1 = $row['plannedSum'] / $row['plannedSum'] * 100;
+                }
+            endforeach;?>
                     <svg viewBox="0 0 36 36" class="circular-chart brown">
                         <path class="circle-bg" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
@@ -108,22 +118,28 @@ $sql->close();
           <?php endforeach;?>
                     </svg>
                 </div>
+                <table class="reportTable">
                 
                 <?php foreach ($budgets as $row): ?>
-
-                <p><?=$row['budgetName'];?></p>
-
-                <p><?=$row['plannedAmount'];?></p>
-                <br>
+                    <tr>
+                    <td><?=$row['budgetName'];?></td>
+                   
+                <td><?=$row['plannedAmount'];?></td>
+                </tr>
                 <?php endforeach;?>
+
                 <?php foreach ($budgets2 as $row):?>
-                <h3>Total</h3>
-                <p><?=$row["plannedSum"];?></p>
+                <tr>
+                <td>Total</td> 
+                <td><?=$row["plannedSum"];?></td>
+                </tr>
                 <?php endforeach; ?>
+                
+                </table>
             </div>
 
             <div class="column">
-                <h3>Spent</h3>
+                <h3 class="reportCategory">Spent</h3>
                 <div class="single-chart">
                 <!--
                     <?php foreach($appliedTotal as $row):
@@ -150,22 +166,30 @@ $sql->close();
           <?php endforeach;?>
                     </svg>
                 </div>
+                <table class="reportTable">
+                
                 <?php foreach ($appliedAmounts as $row):?>
+                    <tr>
+                <td><?=$row['budgetName'];?></td>
 
-                <p><?=$row['budgetName'];?></p>
-
-                <p><?=$row['transactionAmount'];?></p>
-                <br>
+                <td><?=$row['transactionAmount'];?></td>
+                </tr>
                 <?php endforeach;?>
                
-                <h3>Total</h3>
+                
                 <?php foreach ($appliedTotal as $row):?>
-                <p><?=$row['appliedSum']?></p>
+                <tr>
+                    <td>Total</td>
+               
+                <td><?=$row['appliedSum']?></td>
+
+                </tr>
                 <?php endforeach;?>
+                </table>
             </div>
 
             <div class="column">
-                <h3>Remaining</h3>
+                <h3 class="reportCategory">Remaining</h3>
                 <div class="single-chart">
                     <?php foreach($resultTotal as $row):
                 if ($row['plannedSum'] == 0) {
@@ -189,16 +213,21 @@ $sql->close();
           <?php endforeach;?>
                     </svg>
                 </div>
+                <table class="reportTable">
                 <?php foreach($budgets as $row):?>
-                <p><?=$row['budgetName'];?></p>
+                <tr>
+                <td><?=$row['budgetName'];?></td>
 
-                <p><?=$row['resultAmount'];?></p>
-                <br>
+                <td><?=$row['resultAmount'];?></td>
+                </tr>
                 <?php endforeach;?>
                 <?php foreach ($resultTotal as $row):?>
-                <h3>Total</h3>
-                <p><?=$row["resultSum"];?></p>
+                <tr>
+                <td>Total</td>
+                <td><?=$row["resultSum"];?></td>
+                </tr>
                 <?php endforeach; ?>
+                </table>
             </div>
         </div>
     </div>
